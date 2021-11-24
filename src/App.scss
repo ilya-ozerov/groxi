@@ -2,6 +2,33 @@
 }
 
 .container {
-    max-width: 1111px;
+    max-width: 1170px;
     margin: 0 auto;
+}
+
+.button {
+    button {
+        width: 176px;
+        height: 54px;
+        background-color: #9fcb22;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-family: "Barlow", sans-serif;
+        font-weight: 600;
+        color: #fff;
+    }
+}
+
+.subtitle {
+    font-size: 45px;
+    color: #252932;
+    font-family: "Jost", sans-serif;
+    font-weight: 600;
+}
+
+.title {
+    font-family: "Jost", sans-serif;
+    color: #9fcb22;
+    font-weight: 500;
+    font-size: 22px;
 }
