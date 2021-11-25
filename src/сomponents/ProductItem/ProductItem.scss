@@ -1,5 +1,4 @@
 .product-item {
-    background-color: #f6fafb;
     position: relative;
     display: grid;
     align-items: center;
@@ -37,7 +36,7 @@
     }
     &__image {
         width: 250px;
-        height: 200px;
+        height: 300px;
         display: grid;
         align-items: center;
         justify-items: center;

@@ -1,15 +1,16 @@
 .categories {
     padding-top: 120px;
+
     &__body {
         display: grid;
-        justify-items: center;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 28px;
+        width: 100%;
+        justify-content: space-between;
+        grid-template-columns: repeat(3, minmax(352px, 1fr));
+        gap: 30px;
     }
     &__item {
         position: relative;
         height: 287px;
-        width: 352px;
         padding: 0px 0px 0px 30px;
         display: flex;
         flex-direction: column;
