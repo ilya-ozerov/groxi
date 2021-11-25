@@ -13,7 +13,7 @@ type TestimonialsPropsType = {};
 
 export const Testimonials: React.FC<TestimonialsPropsType> = (props) => {
   return (
-    <div className="testimonials">
+    <section className="testimonials">
       <div className="container">
         <div className="testimonials__body">
 
@@ -77,6 +77,6 @@ export const Testimonials: React.FC<TestimonialsPropsType> = (props) => {
         </div>
 
       </div>
-    </div>
+    </section>
   );
 }
