@@ -12,7 +12,7 @@ type FooterPropsType = {}
 
 export const Footer: React.FC<FooterPropsType> = (props) => {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="container">
         <div className="footer__body">
           <div className="subscribe">
@@ -115,7 +115,7 @@ export const Footer: React.FC<FooterPropsType> = (props) => {
 
         </div>
       </div>
-    </div>
+    </footer>
 
   );
 }
