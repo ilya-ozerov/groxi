@@ -1,0 +1,22 @@
+.trending {
+    padding-top: 140px;
+    &__body {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+    &__title {
+        margin-bottom: 23px;
+    }
+    &__subtitle {
+        margin-bottom: 48px;
+    }
+    &__products {
+        display: grid;
+        gap: 30px;
+        align-items: center;
+        justify-items: center;
+
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
