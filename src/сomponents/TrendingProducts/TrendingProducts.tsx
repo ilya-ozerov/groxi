@@ -4,6 +4,11 @@ import { ProductItem } from '../ProductItem/ProductItem';
 import { v1 as createId } from 'uuid';
 
 import meat from '../../assets/images/products/meat.png';
+import broccoli from '../../assets/images/products/broccoli.png';
+import strawberry from '../../assets/images/products/strawberry.png';
+import honey from '../../assets/images/products/honey.png';
+import milk from '../../assets/images/products/milk.png';
+import mangoBeverage from '../../assets/images/products/mangoBeverage.png';
 import { ProductType } from '../../types/types';
 
 
@@ -37,7 +42,6 @@ const products: ProductType[] = [
     favorite: false,
     hot: true,
     price: {
-      oldPrice: 15,
       currentPrice: 12,
     },
     image: {
@@ -47,77 +51,77 @@ const products: ProductType[] = [
   },
   {
     id: createId(),
-    name: 'Beef Steak',
+    name: 'Broccoli',
     rate: 3,
-    favorite: false,
-    hot: true,
+    favorite: true,
+    hot: false,
     price: {
-      oldPrice: 15,
-      currentPrice: 12,
+      oldPrice: 20,
+      currentPrice: 15,
     },
     image: {
-      url: meat,
-      alt: 'product',
+      url: broccoli,
+      alt: 'broccoli',
     }
   },
   {
     id: createId(),
-    name: 'Beef Steak',
+    name: 'Strawberries',
     rate: 3,
     favorite: false,
-    hot: true,
+    hot: false,
     price: {
-      oldPrice: 15,
-      currentPrice: 12,
+      oldPrice: 30,
+      currentPrice: 20,
     },
     image: {
-      url: meat,
-      alt: 'product',
+      url: strawberry,
+      alt: 'Strawberries',
     }
   },
   {
     id: createId(),
-    name: 'Beef Steak',
+    name: 'Fresh Honey',
     rate: 3,
     favorite: false,
-    hot: true,
+    hot: false,
     price: {
-      oldPrice: 15,
-      currentPrice: 12,
+      oldPrice: 50,
+      currentPrice: 40,
     },
     image: {
-      url: meat,
-      alt: 'product',
+      url: honey,
+      alt: 'bottle of honey',
     }
   },
   {
     id: createId(),
-    name: 'Beef Steak',
+    name: 'Fresh Milk',
     rate: 3,
     favorite: false,
     hot: true,
     price: {
-      oldPrice: 15,
-      currentPrice: 12,
+      oldPrice: 10,
+      currentPrice: 8,
     },
     image: {
-      url: meat,
-      alt: 'product',
+      url: milk,
+      alt: 'milk',
     }
   },
   {
     id: createId(),
-    name: 'Beef Steak',
+    name: 'Mango Beverage',
     rate: 3,
     favorite: false,
     hot: true,
     price: {
-      oldPrice: 15,
-      currentPrice: 12,
+      oldPrice: 22,
+      currentPrice: 18,
     },
     image: {
-      url: meat,
-      alt: 'product',
+      url: mangoBeverage,
+      alt: 'mango beverage',
     }
   },
 ]

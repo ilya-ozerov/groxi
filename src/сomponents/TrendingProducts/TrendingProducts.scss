@@ -14,9 +14,8 @@
     &__products {
         display: grid;
         gap: 30px;
-        align-items: center;
-        justify-items: center;
 
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, minmax(320px, 350px));
+        grid-auto-rows: 1fr;
     }
 }
