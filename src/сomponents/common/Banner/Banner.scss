@@ -1,0 +1,77 @@
+.banner {
+    background-color: #f6fafb;
+    padding: 50px 0px;
+    position: relative;
+    min-height: 50vh;
+    &__products-bag-background {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 15%;
+    }
+    &__vegetables-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 15%;
+    }
+
+    &__header {
+        margin-bottom: 109px;
+    }
+
+    &__body {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    &__banner {
+        padding: 50px 68px;
+        display: grid;
+        justify-items: center;
+        background-color: #fff;
+        border-top: 3px solid #9fcb22;
+        font-family: "Jost", sans-serif;
+    }
+
+    &__navigation {
+        color: #9fcb22;
+        font-size: 22px;
+        font-weight: 500;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 15px;
+        margin-bottom: 27px;
+
+        li {
+            padding-right: 15px;
+            margin-right: 15px;
+            position: relative;
+            &::after {
+                content: "";
+                width: 15px;
+                height: 13px;
+                position: absolute;
+                top: calc(50% - 7.5px);
+                right: -15px;
+                background: url("../../../assets/images/banner/arrow.png");
+            }
+
+            &:last-child {
+                padding-right: 0;
+                margin-right: 0;
+                &::after {
+                    content: none;
+                }
+            }
+        }
+    }
+    &__title {
+        font-size: 60px;
+        color: #252932;
+        font-weight: 600;
+    }
+}
