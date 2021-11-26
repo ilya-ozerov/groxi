@@ -9,34 +9,34 @@ type HomeBannerPropsType = {
 
 export const HomeBanner: React.FC<HomeBannerPropsType> = (props) => {
   return (
-    <section className="banner">
+    <section className="home-banner">
 
-      <img src={background} className="banner__background" />
+      <img src={background} className="home-banner__background" />
 
       {/* left picture */}
-      <img src={vegetables_bg} className="banner__vegetables-background" />
+      <img src={vegetables_bg} className="home-banner__vegetables-background" />
 
 
       <Header />
 
 
       <div className="container">
-        <div className="banner__body">
-          <div className="banner__title title ">
+        <div className="home-banner__body">
+          <div className="home-banner__title title ">
             Welcome To Our Grocery Store
           </div>
-          <div className="banner__subtitle subtitle">
+          <div className="home-banner__subtitle subtitle">
             Shop Online For
             <br />
             Fresh Grocries
           </div>
-          <div className="banner__text">
+          <div className="home-banner__text">
             Duis aute irure dolor in reprehenderit in voluptate
             <br />
             velit esse cillum dolore eu fugiat nulla pariatur.
           </div>
 
-          <div className="banner__buttons buttons">
+          <div className="home-banner__buttons buttons">
             <div className="buttons__shop button">
               <button>shop now</button>
             </div>
