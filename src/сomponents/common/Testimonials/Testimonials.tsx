@@ -1,12 +1,12 @@
 import React from 'react';
 import './Testimonials.scss';
 
-import doubleApostrophe from '../../assets/images/testimonials/doubleApostrophe.png';
+import doubleApostrophe from '../../../assets/images/testimonials/doubleApostrophe.png';
 
-import firstAward from '../../assets/images/testimonials/firstAward.png';
-import secondAward from '../../assets/images/testimonials/secondAward.png';
-import thirdAward from '../../assets/images/testimonials/thirdAward.png';
-import fourthAward from '../../assets/images/testimonials/fourthAward.png';
+import firstAward from '../../../assets/images/testimonials/firstAward.png';
+import secondAward from '../../../assets/images/testimonials/secondAward.png';
+import thirdAward from '../../../assets/images/testimonials/thirdAward.png';
+import fourthAward from '../../../assets/images/testimonials/fourthAward.png';
 import { Rate } from 'antd';
 
 type TestimonialsPropsType = {};

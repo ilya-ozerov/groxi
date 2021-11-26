@@ -1,12 +1,12 @@
 import React from 'react';
 import './OurFeatures.scss';
 
-import productBasket from '../../assets/images/ourFeatures/productBasket.png';
+import productBasket from '../../../../assets/images/ourFeatures/productBasket.png';
 
-import quality from '../../assets/images/ourFeatures/quality.png';
-import delivery from '../../assets/images/ourFeatures/delivery.png';
-import onlineOrder from '../../assets/images/ourFeatures/onlineOrder.png';
-import service from '../../assets/images/ourFeatures/service.png';
+import quality from '../../../../assets/images/ourFeatures/quality.png';
+import delivery from '../../../../assets/images/ourFeatures/delivery.png';
+import onlineOrder from '../../../../assets/images/ourFeatures/onlineOrder.png';
+import service from '../../../../assets/images/ourFeatures/service.png';
 
 export const OurFeatures: React.FC<OurFeaturesProps> = (props) => {
   return (

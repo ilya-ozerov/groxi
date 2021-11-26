@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProductItem.scss';
 import { Rate } from 'antd';
-import { ProductType } from '../../types/types';
+import { ProductType } from '../../../types/types';
 import { HeartFilled } from '@ant-design/icons';
 
 export const ProductItem: React.FC<ProductItemProps> = ({ className, product }) => {

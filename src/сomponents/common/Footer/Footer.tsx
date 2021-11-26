@@ -1,12 +1,12 @@
 import React from 'react';
 import './Footer.scss';
 
-import vegetablesBasket from '../../assets/images/footer/vegetablesBasket.png';
-import facebookIcon from '../../assets/images/footer/Facebook.png';
-import twitterIcon from '../../assets/images/footer/Twitter.png';
-import linkedinIcon from '../../assets/images/footer/Linkedin.png';
-import pinterestIcon from '../../assets/images/footer/Pinterest.png';
-import instagramIcon from '../../assets/images/footer/Instagram.png';
+import vegetablesBasket from '../../../assets/images/footer/vegetablesBasket.png';
+import facebookIcon from '../../../assets/images/footer/Facebook.png';
+import twitterIcon from '../../../assets/images/footer/Twitter.png';
+import linkedinIcon from '../../../assets/images/footer/Linkedin.png';
+import pinterestIcon from '../../../assets/images/footer/Pinterest.png';
+import instagramIcon from '../../../assets/images/footer/Instagram.png';
 
 type FooterPropsType = {}
 

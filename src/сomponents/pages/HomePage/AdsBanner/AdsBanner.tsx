@@ -1,7 +1,8 @@
 import React from 'react';
 import './AdsBanner.scss';
 
-import bannerImage from '../../assets/images/adsBanner/bannerImage.png'
+import bannerImage from '../../../../assets/images/adsBanner/bannerImage.png'
+
 
 export const AdsBanner: React.FC<AdsBannerProps> = (props) => {
   return (

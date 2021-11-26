@@ -1,8 +1,8 @@
 import React from 'react';
 import './AboutUs.scss';
 
-import mainBg from '../../assets/images/aboutUs/mainBg.png';
-import rightBgPicture from '../../assets/images/aboutUs/rightBgPicture.png';
+import mainBg from '../../../../assets/images/aboutUs/mainBg.png';
+import rightBgPicture from '../../../../assets/images/aboutUs/rightBgPicture.png';
 
 export const AboutUs: React.FC<AboutUsProps> = (props) => {
   return (

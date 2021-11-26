@@ -1,21 +1,19 @@
 import React from 'react';
-import { Header } from '../Header/Header';
-import './Banner.scss';
+import { Header } from '../../../common/Header/Header';
+import './HomeBanner.scss';
+import background from '../../../../assets/images/banner/background.png';
+import vegetables_bg from '../../../../assets/images/banner/vegetables_bg.png';
 
-import background from '../../assets/images/banner/background.png';
-import vegetables_bg from '../../assets/images/banner/vegetables_bg.png';
-
-// import productBag_bg from '../../assets/images/banner/productBag_bg.png';
-
-type BannerPropsType = {
-  type: 'home' | '404' | 'other';
+type HomeBannerPropsType = {
 }
 
-export const Banner: React.FC<BannerPropsType> = (props) => {
+export const HomeBanner: React.FC<HomeBannerPropsType> = (props) => {
   return (
     <section className="banner">
 
       <img src={background} className="banner__background" />
+
+      {/* left picture */}
       <img src={vegetables_bg} className="banner__vegetables-background" />
 
 

@@ -1,17 +1,20 @@
 import React from 'react';
 import './Header.scss';
-import logo from '../../assets/images/header/logo.svg';
+import logo from '../../../assets/images/header/logo.svg';
 
-import searchIcon from '../../assets/images/header/searchIcon.png';
-import accountIcon from '../../assets/images/header/accountIcon.png';
-import wishListIcon from '../../assets/images/header/wishListIcon.png';
-import cartIcon from '../../assets/images/header/cartIcon.png';
+import searchIcon from '../../../assets/images/header/searchIcon.png';
+import accountIcon from '../../../assets/images/header/accountIcon.png';
+import wishListIcon from '../../../assets/images/header/wishListIcon.png';
+import cartIcon from '../../../assets/images/header/cartIcon.png';
+import { NavLink } from 'react-router-dom';
 
-type HeaderPropsType = {}
+type HeaderPropsType = {
+  className?: string;
+}
 
 export const Header: React.FC<HeaderPropsType> = (props) => {
   return (
-    <header className="header">
+    <header className={`header ${props.className}`}>
       <div className="container">
         <div className="header__row">
           <div className="header__logo">
@@ -19,11 +22,21 @@ export const Header: React.FC<HeaderPropsType> = (props) => {
           </div>
           <div className="header__menu">
             <ul className="header__list">
-              <li>Home</li>
-              <li>About</li>
-              <li>Shop</li>
-              <li>Blog</li>
-              <li>Contact</li>
+              <li>
+                <NavLink to="/home">Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/about">About</NavLink>
+              </li>
+              <li>
+                <NavLink to="/shop">Shop</NavLink>
+              </li>
+              <li>
+                <NavLink to="/blog">Blog</NavLink>
+              </li>
+              <li>
+                <NavLink to="/contact">Contact</NavLink>
+              </li>
             </ul>
 
           </div>

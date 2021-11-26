@@ -1,15 +1,15 @@
 import React from 'react';
 import './TrendingProducts.scss';
-import { ProductItem } from '../ProductItem/ProductItem';
+import { ProductItem } from '../../../common/ProductItem/ProductItem';
 import { v1 as createId } from 'uuid';
 
-import meat from '../../assets/images/products/meat.png';
-import broccoli from '../../assets/images/products/broccoli.png';
-import strawberry from '../../assets/images/products/strawberry.png';
-import honey from '../../assets/images/products/honey.png';
-import milk from '../../assets/images/products/milk.png';
-import mangoBeverage from '../../assets/images/products/mangoBeverage.png';
-import { ProductType } from '../../types/types';
+import meat from '../../../../assets/images/products/meat.png';
+import broccoli from '../../../../assets/images/products/broccoli.png';
+import strawberry from '../../../../assets/images/products/strawberry.png';
+import honey from '../../../../assets/images/products/honey.png';
+import milk from '../../../../assets/images/products/milk.png';
+import mangoBeverage from '../../../../assets/images/products/mangoBeverage.png';
+import { ProductType } from '../../../../types/types';
 
 
 type TrendingProductsPropsType = {}

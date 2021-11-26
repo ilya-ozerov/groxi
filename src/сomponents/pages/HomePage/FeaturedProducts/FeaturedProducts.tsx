@@ -2,16 +2,16 @@ import React from 'react';
 import { v1 as createId } from 'uuid';
 import './FeaturedProducts.scss';
 
-import background from '../../assets/images/featuredProducts/background.png';
+import background from '../../../../assets/images/featuredProducts/background.png';
 
-import bread from '../../assets/images/featuredProducts/freshBread.png';
-import redPepper from '../../assets/images/featuredProducts/redPepper.png';
-import orangeBeverage from '../../assets/images/featuredProducts/orangeBeverage.png';
-import eggs from '../../assets/images/featuredProducts/eggs.png';
-import cookingOil from '../../assets/images/featuredProducts/cookingOil.png';
-import bodyLotion from '../../assets/images/featuredProducts/bodyLotion.png';
-import { ProductType } from '../../types/types';
-import { ProductItem } from '../ProductItem/ProductItem';
+import bread from '../../../../assets/images/featuredProducts/freshBread.png';
+import redPepper from '../../../../assets/images/featuredProducts/redPepper.png';
+import orangeBeverage from '../../../../assets/images/featuredProducts/orangeBeverage.png';
+import eggs from '../../../../assets/images/featuredProducts/eggs.png';
+import cookingOil from '../../../../assets/images/featuredProducts/cookingOil.png';
+import bodyLotion from '../../../../assets/images/featuredProducts/bodyLotion.png';
+import { ProductType } from '../../../../types/types';
+import { ProductItem } from '../../../common/ProductItem/ProductItem';
 
 export const FeaturedProducts: React.FC<FeaturedProductsProps> = (props) => {
 

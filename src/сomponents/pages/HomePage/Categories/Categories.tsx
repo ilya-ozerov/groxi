@@ -1,10 +1,9 @@
 import React from 'react';
 import './Categories.scss';
 
-import productBag from '../../assets/images/categories/productBag.png';
-import juice from '../../assets/images/categories/juice.png';
-import lemon from '../../assets/images/categories/lemon.png';
-// import rightArrow from '../../assets/images/categories/rightArrow.png';
+import productBag from '../../../../assets/images/categories/productBag.png';
+import juice from '../../../../assets/images/categories/juice.png';
+import lemon from '../../../../assets/images/categories/lemon.png';
 
 type CategoriesPropsType = {}
 export const Categories: React.FC<CategoriesPropsType> = (props) => {
