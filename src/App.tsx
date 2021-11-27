@@ -6,6 +6,7 @@ import { Page404 } from './сomponents/pages/Page404/Page404';
 import { Footer } from './сomponents/common/Footer/Footer';
 import { Testimonials } from './сomponents/common/Testimonials/Testimonials';
 import { AboutPage } from './сomponents/pages/AboutPage/AboutPage';
+import { ContactPage } from './сomponents/pages/ContactPage/ContactPage';
 
 export const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ export const App: React.FC = () => {
         <Route exact path='/' render={() => <Redirect to='/home' />} />
         <Route path='/home' render={() => <HomePage />} />
         <Route path='/about' render={() => <AboutPage />} />
+        <Route path='/contact' render={() => <ContactPage />} />
         <Route path='*' render={() => <Page404 />} />
       </Switch>
 
