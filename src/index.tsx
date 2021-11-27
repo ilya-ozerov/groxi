@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import "antd/dist/antd.css";
 import './index.scss';
-import GroxiApp, { App } from './App';
+import { GroxiApp } from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

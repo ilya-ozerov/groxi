@@ -23,7 +23,7 @@ export const App: React.FC = () => {
   );
 }
 
-const GroxiApp: React.FC = () => {
+export const GroxiApp: React.FC = () => {
   return (
     <React.StrictMode>
       <BrowserRouter>
@@ -32,5 +32,3 @@ const GroxiApp: React.FC = () => {
     </React.StrictMode>
   );
 }
-
-export default GroxiApp;
