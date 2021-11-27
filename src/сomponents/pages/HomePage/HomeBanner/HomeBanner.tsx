@@ -11,10 +11,10 @@ export const HomeBanner: React.FC<HomeBannerPropsType> = (props) => {
   return (
     <section className="home-banner">
 
-      <img src={background} className="home-banner__background" />
+      <img src={background} className="home-banner__background" alt="background" />
 
       {/* left picture */}
-      <img src={vegetables_bg} className="home-banner__vegetables-background" />
+      <img src={vegetables_bg} className="home-banner__vegetables-background" alt="background" />
 
 
       <Header />

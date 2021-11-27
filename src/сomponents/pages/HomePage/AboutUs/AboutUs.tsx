@@ -9,8 +9,8 @@ export const AboutUs: React.FC<AboutUsProps> = (props) => {
     <section className="about">
       <div className="container">
         <div className="about__body">
-          <img src={mainBg} className="about__main-bg" />
-          <img src={rightBgPicture} className="about__right-bg" />
+          <img src={mainBg} className="about__main-bg" alt="background" />
+          <img src={rightBgPicture} className="about__right-bg" alt="background" />
 
           <div className="about__info">
             <div className="about__title title">About Us</div>
