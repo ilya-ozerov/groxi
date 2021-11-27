@@ -1,0 +1,43 @@
+.information-section {
+    padding: 140px 0px 0px 0px;
+
+    &__body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 50px;
+    }
+    &__image {
+        position: relative;
+        img {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 140%;
+        }
+    }
+    &__info {
+        padding: 110px 0px;
+        align-self: center;
+    }
+    &__title {
+        color: #252932;
+        font-size: 45px;
+        font-family: "Jost", sans-serif;
+        font-weight: 600;
+        margin-bottom: 27px;
+    }
+    &__text {
+        p {
+            color: #6c6c6c;
+            font-size: 20px;
+            line-height: 150%;
+            font-family: "Barlow", sans-serif;
+            font-weight: 300;
+            margin-bottom: 30px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
