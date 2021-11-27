@@ -1,0 +1,134 @@
+.form-section {
+    padding: 140px 0px;
+    &__body {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    &__form {
+    }
+    &__info {
+        padding: 80px 40px;
+        background-color: #9fcc22;
+        color: #f6fafb;
+    }
+    &__title {
+        font-size: 45px;
+        font-family: "Jost", sans-serif;
+        font-weight: 600;
+        margin-bottom: 40px;
+    }
+    &__text {
+        font-size: 20px;
+        margin-bottom: 34px;
+        font-family: "Barlow", sans-serif;
+        font-weight: 300;
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        gap: 20px;
+        margin-bottom: 38px;
+        &:last-child {
+            margin-bottom: 0px;
+        }
+    }
+    &__image {
+        justify-self: center;
+    }
+    &__data {
+    }
+    &__field {
+        font-family: "Jost", sans-serif;
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 23px;
+    }
+    &__values {
+        font-family: "Barlow", sans-serif;
+        font-weight: 300;
+        li {
+            font-size: 20px;
+            margin-bottom: 15px;
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
+
+.form {
+    background-color: #f6fafb;
+    padding: 80px 40px;
+
+    &__title {
+        font-size: 45px;
+        font-family: "Jost", sans-serif;
+        font-weight: 600;
+        margin-bottom: 40px;
+        color: #252932;
+    }
+    &__body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas:
+            "name email"
+            "phone address"
+            "message message"
+            "message message"
+            "message message";
+        column-gap: 17px;
+        row-gap: 23px;
+
+        margin-bottom: 39px;
+    }
+    &__name {
+        grid-area: name;
+    }
+    &__email {
+        grid-area: email;
+    }
+    &__phone {
+        grid-area: phone;
+    }
+    &__address {
+        grid-area: address;
+    }
+    &__message {
+        grid-area: message;
+        textarea {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            resize: none;
+            color: #6c6c6c;
+            font-family: "Barlow", sans-serif;
+            font-weight: 300;
+            &::placeholder {
+                color: #6c6c6c;
+                font-family: "Barlow", sans-serif;
+                font-weight: 300;
+            }
+        }
+    }
+    &__button {
+    }
+}
+
+.input {
+    input {
+        padding: 20px;
+        width: 100%;
+        height: 54px;
+        color: #6c6c6c;
+        font-family: "Barlow", sans-serif;
+        font-weight: 300;
+        &::placeholder {
+            color: #6c6c6c;
+            font-family: "Barlow", sans-serif;
+            font-weight: 300;
+        }
+    }
+}
