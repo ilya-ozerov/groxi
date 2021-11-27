@@ -13,7 +13,7 @@ export const App: React.FC = () => {
       <Switch>
         <Route exact path='/' render={() => <Redirect to='/home' />} />
         <Route path='/home' render={() => <HomePage />} />
-
+        <Route path='/about' render={() => <AboutPage />} />
         <Route path='*' render={() => <Page404 />} />
       </Switch>
 
