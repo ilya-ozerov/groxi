@@ -96,25 +96,6 @@
     &__search {
         margin-bottom: 39px;
     }
-    &__input {
-        padding: 15px;
-        display: flex;
-        background-color: #f6fafb;
-        height: 45px;
-        line-height: 45px;
-        input {
-            width: 100%;
-            background-color: #f6fafb;
-            font-size: 18px;
-            font-family: "Barlow", sans-serif;
-            font-weight: 300;
-        }
-    }
-    &__icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 
     &__title {
         color: #252932;

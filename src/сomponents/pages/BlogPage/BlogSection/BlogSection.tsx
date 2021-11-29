@@ -10,6 +10,7 @@ import postImage6 from '../../../../assets/images/blogPage/posts/postImage6.png'
 
 import search from '../../../../assets/images/blogPage/search.png';
 import { Paginator } from '../../../common/Paginator/Paginator';
+import { SearchInput } from '../../../common/SearchInput/SearchInput';
 
 export const BlogSection: React.FC<BlogSectionPropsType> = (props) => {
   return (
@@ -187,15 +188,7 @@ export const BlogSection: React.FC<BlogSectionPropsType> = (props) => {
 
           <div className="blog-section__sidebar blog-sidebar">
 
-            <div className="blog-sidebar__search">
-              <div className="blog-sidebar__input">
-                <input type="text" placeholder="Search" />
-                <div className="blog-sidebar__icon">
-                  <img src={search} alt="search icon" />
-                </div>
-              </div>
-            </div>
-
+            <SearchInput className="blog-sidebar__search" />
 
             <div className="blog-sidebar__recent">
               <div className="blog-sidebar__title">Recent Posts</div>
