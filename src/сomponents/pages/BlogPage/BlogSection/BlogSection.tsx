@@ -7,10 +7,9 @@ import postImage3 from '../../../../assets/images/blogPage/posts/postImage3.png'
 import postImage4 from '../../../../assets/images/blogPage/posts/postImage4.png';
 import postImage5 from '../../../../assets/images/blogPage/posts/postImage5.png';
 import postImage6 from '../../../../assets/images/blogPage/posts/postImage6.png';
-import arrow from '../../../../assets/images/blogPage/posts/arrow.png';
 
-import greenArrow from '../../../../assets/images/blogPage/greenArrow.png';
 import search from '../../../../assets/images/blogPage/search.png';
+import { Paginator } from '../../../common/Paginator/Paginator';
 
 export const BlogSection: React.FC<BlogSectionPropsType> = (props) => {
   return (
@@ -183,19 +182,7 @@ export const BlogSection: React.FC<BlogSectionPropsType> = (props) => {
               </div>
 
             </div>
-            <div className="blog-section__pagination">
-              <div className="blog-section__prev-button">
-                <img src={arrow} alt="prev button" />
-              </div>
-              <ul className="blog-section__list">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-              </ul>
-              <div className="blog-section__next-button">
-                <img src={arrow} alt="next button" />
-              </div>
-            </div>
+            <Paginator className="blog-section__paginator" />
           </div>
 
           <div className="blog-section__sidebar blog-sidebar">
