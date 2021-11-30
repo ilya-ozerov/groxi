@@ -1,0 +1,139 @@
+// sidebar
+.shop-sidebar {
+    &__title {
+        font-family: "Jost", sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        color: #252932;
+        margin-bottom: 24px;
+    }
+    &__search {
+        margin-bottom: 39px;
+    }
+    &__categories {
+        padding: 30px 0px 30px 30px;
+        border: 1px solid #deecf0;
+        margin-bottom: 30px;
+    }
+    &__list {
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+
+            font-family: "Barlow", sans-serif;
+            font-weight: 300;
+            color: #6c6c6c;
+
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }
+    }
+    &__checkbox {
+        margin-right: 15px;
+    }
+    &__filter {
+        padding: 30px;
+        border: 1px solid #deecf0;
+        margin-bottom: 30px;
+    }
+    &__slider {
+        .ant-slider-rail {
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            height: 8px;
+            background-color: #f6fafb;
+        }
+        .ant-slider:hover .ant-slider-rail {
+            background-color: #f6fafb;
+        }
+        .ant-slider:hover .ant-slider-track {
+            background-color: #f6fafb;
+        }
+        .ant-slider-handle:focus {
+            border-color: #9fcb22;
+            outline: none;
+            box-shadow: 0 0 0 5px rgba(#9fcb22, 0.12);
+        }
+    }
+    &__button {
+        button {
+            background-color: rgba($color: #000000, $alpha: 0);
+            text-align: left;
+            background: url("../../../../../assets/images/blogPage/greenArrow.png") 75% center no-repeat;
+            color: #9fcb22;
+            width: 91px;
+        }
+    }
+    &__price-range {
+        font-size: 16px;
+        font-family: "Barlow", sans-serif;
+        font-weight: 300;
+        color: #6c6c6c;
+    }
+}
+
+.sidebar-trending {
+    padding: 30px 30px 20px 30px;
+    border: 1px solid #deecf0;
+
+    &__items {
+        margin-bottom: 20px;
+    }
+    &__item {
+        display: grid;
+        grid-template-columns: 71px 1fr;
+        gap: 14px;
+
+        margin-bottom: 20px;
+        &:last-child {
+            margin-bottom: 0px;
+        }
+    }
+    &__image {
+        width: 71px;
+        height: 71px;
+        background-color: #f6fafb;
+        img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+    }
+    &__info {
+    }
+    &__title {
+        color: #252932;
+        font-family: "Jost", sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    &__price {
+        font-family: "Barlow", sans-serif;
+        font-weight: 600;
+        color: #9fcb22;
+        font-size: 16px;
+        margin-bottom: 8px;
+        span {
+            font-weight: 400;
+            color: #b2b3b4;
+            text-decoration: line-through;
+            margin-right: 8px;
+        }
+    }
+    &__rate {
+    }
+    &__button {
+        button {
+            background-color: rgba($color: #000000, $alpha: 0);
+            text-align: left;
+            background: url("../../../../../assets/images/blogPage/greenArrow.png") 55% center no-repeat;
+            color: #9fcb22;
+        }
+    }
+}
