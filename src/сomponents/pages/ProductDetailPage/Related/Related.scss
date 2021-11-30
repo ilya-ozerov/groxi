@@ -1,0 +1,24 @@
+.related {
+    &__body {
+    }
+
+    &__title {
+        font-size: 45px;
+        color: #252932;
+        font-family: "Jost", sans-serif;
+        font-weight: 600;
+        margin-bottom: 40px;
+    }
+
+    &__products {
+        width: 100%;
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(4, minmax(250px, 1fr));
+        grid-template-rows: 1fr;
+    }
+
+    &__product {
+        background-color: #f6fafb;
+    }
+}
