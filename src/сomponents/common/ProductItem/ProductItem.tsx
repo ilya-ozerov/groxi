@@ -26,23 +26,26 @@ export const ProductItem: React.FC<ProductItemProps> = ({ className, product }) 
       <div className="product-item__image">
         <img src={product.image.url} alt={product.image.alt} />
       </div>
-      <div className="product-item__rate">
-        <Rate disabled defaultValue={product.rate} />
+      <div className="product-item__info">
+        <div className="product-item__rate">
+          <Rate disabled defaultValue={product.rate} />
+        </div>
+        <div className="product-item__name">{product.name}</div>
+        <div className="product-item__price">
+          {product.price.oldPrice &&
+            <React.Fragment>
+              <span>${product.price.oldPrice}</span> ${product.price.currentPrice}
+            </React.Fragment>
+          }
+          {!product.price.oldPrice &&
+            <React.Fragment>${product.price.currentPrice}</React.Fragment>
+          }
+        </div>
+        <div className="product-item__button button">
+          <button>Add to cart</button>
+        </div>
       </div>
-      <div className="product-item__name">{product.name}</div>
-      <div className="product-item__price">
-        {product.price.oldPrice &&
-          <React.Fragment>
-            <span>${product.price.oldPrice}</span> ${product.price.currentPrice}
-          </React.Fragment>
-        }
-        {!product.price.oldPrice &&
-          <React.Fragment>${product.price.currentPrice}</React.Fragment>
-        }
-      </div>
-      <div className="product-item__button button">
-        <button>Add to cart</button>
-      </div>
+
     </div>
   );
 }
