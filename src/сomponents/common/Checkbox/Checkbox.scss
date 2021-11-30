@@ -1,0 +1,14 @@
+.checkbox {
+    width: 17px;
+    height: 17px;
+    background-color: #fff;
+    border: 1px solid #d7e6ea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox-active {
+    border-color: #9fcb22;
+    background-color: #9fcb22;
+}
