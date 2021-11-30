@@ -8,7 +8,6 @@ import postImage4 from '../../../../assets/images/blogPage/posts/postImage4.png'
 import postImage5 from '../../../../assets/images/blogPage/posts/postImage5.png';
 import postImage6 from '../../../../assets/images/blogPage/posts/postImage6.png';
 
-import search from '../../../../assets/images/blogPage/search.png';
 import { Paginator } from '../../../common/Paginator/Paginator';
 import { SearchInput } from '../../../common/SearchInput/SearchInput';
 
