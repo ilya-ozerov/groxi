@@ -1,0 +1,49 @@
+.product-information {
+    margin-bottom: 90px;
+    &__body {
+    }
+    &__nav {
+        margin-bottom: 30px;
+    }
+    &__list {
+        display: flex;
+        padding: 20px 0px;
+        border-bottom: 1px solid #deecf0;
+        li {
+            font-family: "Jost", sans-serif;
+            font-weight: 500;
+            font-size: 22px;
+            color: #252932;
+
+            margin-right: 40px;
+        }
+    }
+    &__active {
+        position: relative;
+        &::after {
+            position: absolute;
+            content: "";
+            height: 3px;
+            width: 100%;
+            bottom: -22px;
+            left: 0;
+            background-color: #9fcb22;
+        }
+    }
+
+    &__info {
+    }
+    &__text {
+        p {
+            font-size: 20px;
+            color: #6c6c6c;
+            font-family: "Barlow", sans-serif;
+            font-weight: 300;
+            margin-bottom: 20px;
+            line-height: 150%;
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
