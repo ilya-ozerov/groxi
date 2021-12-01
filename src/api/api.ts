@@ -1,199 +1,519 @@
 import { v1 as createId } from 'uuid';
 
-import { ProductType } from './../types/types';
+import { ProductDetailType, ProductType } from './../types/types';
 
-import meat from '../assets/images/products/meat.png';
-import broccoli from '../assets/images/products/broccoli.png';
-import strawberry from '../assets/images/products/strawberry.png';
-import honey from '../assets/images/products/honey.png';
-import milk from '../assets/images/products/milk.png';
-import mangoBeverage from '../assets/images/products/mangoBeverage.png';
-import bread from '../assets/images/featuredProducts/freshBread.png';
-import redPepper from '../assets/images/featuredProducts/redPepper.png';
-import orangeBeverage from '../assets/images/featuredProducts/orangeBeverage.png';
-import eggs from '../assets/images/featuredProducts/eggs.png';
-import cookingOil from '../assets/images/featuredProducts/cookingOil.png';
-import bodyLotion from '../assets/images/featuredProducts/bodyLotion.png';
+import strawberry1 from '../assets/images/detailPage/products/strawberry/strawberry1.png';
+import strawberry2 from '../assets/images/detailPage/products/strawberry/strawberry2.jpg';
+import strawberry3 from '../assets/images/detailPage/products/strawberry/strawberry3.jpg';
+import strawberry4 from '../assets/images/detailPage/products/strawberry/strawberry4.jpg';
+import strawberry5 from '../assets/images/detailPage/products/strawberry/strawberry5.jpg';
+import strawberry6 from '../assets/images/detailPage/products/strawberry/strawberry6.jpg';
 
+import meat1 from '../assets/images/detailPage/products/meat/meat1.png';
+import meat2 from '../assets/images/detailPage/products/meat/meat2.jpg';
+import meat3 from '../assets/images/detailPage/products/meat/meat3.png';
 
-export const products: ProductType[] = [
+import broccoli1 from '../assets/images/detailPage/products/broccoli/broccoli1.png';
+import broccoli2 from '../assets/images/detailPage/products/broccoli/broccoli2.jpg';
+import broccoli3 from '../assets/images/detailPage/products/broccoli/broccoli3.jpg';
+import broccoli4 from '../assets/images/detailPage/products/broccoli/broccoli4.jpg';
+import broccoli5 from '../assets/images/detailPage/products/broccoli/broccoli5.jpg';
+
+import honey1 from '../assets/images/detailPage/products/honey/honey1.png';
+
+import milk1 from '../assets/images/detailPage/products/milk/milk1.png';
+
+import mangoBeverage1 from '../assets/images/detailPage/products/mangoBeverage/mangoBeverage1.png';
+
+import bread1 from '../assets/images/detailPage/products/freshBread/freshBread1.png';
+
+import redPepper1 from '../assets/images/detailPage/products/redPepper/redPepper1.png';
+
+import orangeBeverage1 from '../assets/images/detailPage/products/orangeBeverage/orangeBeverage1.png';
+
+import eggs1 from '../assets/images/detailPage/products/eggs/eggs1.png';
+
+import cookingOil1 from '../assets/images/detailPage/products/cookingOil/cookingOil1.png';
+
+import bodyLotion1 from '../assets/images/detailPage/products/bodyLotion/bodyLotion1.png';
+
+export const productsDetail: ProductDetailType[] = [
     {
-        id: createId(),
-        name: 'Beef Steak',
-        rate: 3,
-        favorite: false,
-        hot: true,
-        price: {
-            currentPrice: 12,
-        },
-        image: {
-            url: meat,
-            alt: 'product',
-        }
-    },
-    {
-        id: createId(),
-        name: 'Broccoli',
-        rate: 3,
-        favorite: true,
-        hot: false,
-        price: {
-            oldPrice: 20,
-            currentPrice: 15,
-        },
-        image: {
-            url: broccoli,
-            alt: 'broccoli',
-        }
-    },
-    {
-        id: createId(),
         name: 'Strawberries',
+        tags: ["Food", "Fruits", "Health", "Fruits & Vegetables"],
+        id: "25e31a60-52c8-11ec-9b2a-0576109a5fb1",
         rate: 3,
         favorite: false,
         hot: false,
+        trending: true,
         price: {
             oldPrice: 30,
             currentPrice: 20,
         },
-        image: {
-            url: strawberry,
-            alt: 'Strawberries',
-        }
+        images: [
+            {
+                url: strawberry1,
+                alt: "strawberry",
+            },
+            {
+                url: strawberry2,
+                alt: "strawberry",
+            },
+            {
+                url: strawberry3,
+                alt: "strawberry",
+            },
+            {
+                url: strawberry4,
+                alt: "strawberry",
+            },
+            {
+                url: strawberry5,
+                alt: "strawberry",
+            },
+            {
+                url: strawberry6,
+                alt: "strawberry",
+            },
+        ],
+        overview: "Neque porro quisquam est aui dolorem iesum ruia do sit amet, consectetur, adipisci velit, sed quia non num eius modi tempora incidunt ut labore et dolore magna volutatem exercitationem ullam.",
+        description: [
+            "Ratione volurtatem serui nesciunt neaue porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+            "Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        ],
+        reviews: [
+            {
+                id: createId(),
+                name: "Lorem",
+                mark: 4,
+                message: "Lorem ipsum dolor sit amet. "
+            }
+        ],
     },
     {
-        id: createId(),
+        name: 'Beef Steak',
+        tags: ["Food", "Meat", "Meats, Frozen", "Grocery & Staples"],
+        id: "36f95711-52c8-11ec-9b2a-0576109a5fb1",
+        rate: 3,
+        favorite: false,
+        hot: true,
+        trending: true,
+        price: {
+            currentPrice: 12,
+        },
+        images: [
+            {
+                url: meat1,
+                alt: "meat",
+            },
+            {
+                url: meat2,
+                alt: "meat",
+            },
+            {
+                url: meat3,
+                alt: "meat",
+            },
+        ],
+        overview: "Neque porro quisquam est aui dolorem iesum ruia do sit amet, consectetur, adipisci velit, sed quia non num eius modi tempora incidunt ut labore et dolore magna volutatem exercitationem ullam.",
+        description: [
+            "Ratione volurtatem serui nesciunt neaue porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+            "Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        ],
+        reviews: [
+            {
+                id: createId(),
+                name: "Lorem",
+                mark: 4,
+                message: "Lorem ipsum dolor sit amet. "
+            }
+        ],
+    },
+    {
+        name: 'Broccoli',
+        tags: ["Food", "Health", "Fruits & Vegetables"],
+        id: "36f95713-52c8-11ec-9b2a-0576109a5fb1",
+        rate: 3,
+        favorite: true,
+        hot: false,
+        trending: true,
+        price: {
+            oldPrice: 20,
+            currentPrice: 15,
+        },
+        images: [
+            {
+                url: broccoli1,
+                alt: "meat",
+            },
+            {
+                url: broccoli2,
+                alt: "meat",
+            },
+            {
+                url: broccoli3,
+                alt: "meat",
+            },
+            {
+                url: broccoli4,
+                alt: "meat",
+            },
+            {
+                url: broccoli5,
+                alt: "meat",
+            },
+        ],
+        overview: "Neque porro quisquam est aui dolorem iesum ruia do sit amet, consectetur, adipisci velit, sed quia non num eius modi tempora incidunt ut labore et dolore magna volutatem exercitationem ullam.",
+        description: [
+            "Ratione volurtatem serui nesciunt neaue porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+            "Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        ],
+        reviews: [
+            {
+                id: createId(),
+                name: "Lorem",
+                mark: 4,
+                message: "Lorem ipsum dolor sit amet. "
+            }
+        ],
+    },
+    {
         name: 'Fresh Honey',
+        tags: ["Health", "Food"],
+        id: "36f95715-52c8-11ec-9b2a-0576109a5fb1",
         rate: 3,
         favorite: false,
         hot: false,
+        trending: true,
         price: {
             oldPrice: 50,
             currentPrice: 40,
         },
-        image: {
-            url: honey,
-            alt: 'bottle of honey',
-        }
+        images: [
+            {
+                url: honey1,
+                alt: "honey",
+            },
+        ],
+        overview: "Neque porro quisquam est aui dolorem iesum ruia do sit amet, consectetur, adipisci velit, sed quia non num eius modi tempora incidunt ut labore et dolore magna volutatem exercitationem ullam.",
+        description: [
+            "Ratione volurtatem serui nesciunt neaue porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+            "Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        ],
+        reviews: [
+            {
+                id: createId(),
+                name: "Lorem",
+                mark: 4,
+                message: "Lorem ipsum dolor sit amet. "
+            }
+        ],
     },
     {
-        id: createId(),
         name: 'Fresh Milk',
+        tags: ["Health", "Food", "Breakfast & Dairy"],
+        id: "36f95717-52c8-11ec-9b2a-0576109a5fb1",
         rate: 3,
         favorite: false,
         hot: true,
+        trending: true,
         price: {
             oldPrice: 10,
             currentPrice: 8,
         },
-        image: {
-            url: milk,
-            alt: 'milk',
-        }
+        images: [
+            {
+                url: milk1,
+                alt: "milk",
+            },
+        ],
+        overview: "Neque porro quisquam est aui dolorem iesum ruia do sit amet, consectetur, adipisci velit, sed quia non num eius modi tempora incidunt ut labore et dolore magna volutatem exercitationem ullam.",
+        description: [
+            "Ratione volurtatem serui nesciunt neaue porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+            "Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        ],
+        reviews: [
+            {
+                id: createId(),
+                name: "Lorem",
+                mark: 4,
+                message: "Lorem ipsum dolor sit amet. "
+            }
+        ],
     },
     {
-        id: createId(),
         name: 'Mango Beverage',
-        rate: 3,
+        tags: ["Health", "Food", "Fruits", "Fruits & Vegetables", "Beverages"],
+        id: "36f95719-52c8-11ec-9b2a-0576109a5fb1",
+        trending: true,
+        rate: 4,
         favorite: false,
         hot: true,
         price: {
             oldPrice: 22,
             currentPrice: 18,
         },
-        image: {
-            url: mangoBeverage,
-            alt: 'mango beverage',
-        }
+        images: [
+            {
+                url: mangoBeverage1,
+                alt: "mango beverage",
+            },
+        ],
+        overview: "Neque porro quisquam est aui dolorem iesum ruia do sit amet, consectetur, adipisci velit, sed quia non num eius modi tempora incidunt ut labore et dolore magna volutatem exercitationem ullam.",
+        description: [
+            "Ratione volurtatem serui nesciunt neaue porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+            "Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        ],
+        reviews: [
+            {
+                id: createId(),
+                name: "Lorem",
+                mark: 4,
+                message: "Lorem ipsum dolor sit amet. "
+            }
+        ],
     },
     {
-        id: createId(),
         name: 'Fresh Bread',
+        tags: ["Health", "Food", "Grocery & Staples"],
+        id: "36f9571b-52c8-11ec-9b2a-0576109a5fb1",
         rate: 5,
         favorite: false,
         hot: true,
+        trending: false,
         price: {
             oldPrice: 15,
             currentPrice: 12,
         },
-        image: {
-            url: bread,
-            alt: 'bread',
-        }
+        images: [
+            {
+                url: bread1,
+                alt: "bread",
+            },
+        ],
+        overview: "Neque porro quisquam est aui dolorem iesum ruia do sit amet, consectetur, adipisci velit, sed quia non num eius modi tempora incidunt ut labore et dolore magna volutatem exercitationem ullam.",
+        description: [
+            "Ratione volurtatem serui nesciunt neaue porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+            "Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        ],
+        reviews: [
+            {
+                id: createId(),
+                name: "Lorem",
+                mark: 4,
+                message: "Lorem ipsum dolor sit amet. "
+            }
+        ],
     },
     {
-        id: createId(),
         name: 'Red Pepper',
+        tags: ["Health", "Food", "Fruits & Vegetables"],
+        id: "36f9571d-52c8-11ec-9b2a-0576109a5fb1",
         rate: 4,
         favorite: false,
         hot: false,
+        trending: false,
         price: {
             oldPrice: 20,
             currentPrice: 15,
         },
-        image: {
-            url: redPepper,
-            alt: 'two red peppers',
-        }
+        images: [
+            {
+                url: redPepper1,
+                alt: "red pepper",
+            },
+        ],
+        overview: "Neque porro quisquam est aui dolorem iesum ruia do sit amet, consectetur, adipisci velit, sed quia non num eius modi tempora incidunt ut labore et dolore magna volutatem exercitationem ullam.",
+        description: [
+            "Ratione volurtatem serui nesciunt neaue porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+            "Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        ],
+        reviews: [
+            {
+                id: createId(),
+                name: "Lorem",
+                mark: 4,
+                message: "Lorem ipsum dolor sit amet. "
+            }
+        ],
     },
     {
-        id: createId(),
         name: 'Orange Beverage',
+        tags: ["Health", "Food", "Fruits & Vegetables", "Fruits", "Beverages"],
+        id: "36f9571f-52c8-11ec-9b2a-0576109a5fb1",
         rate: 5,
         favorite: false,
         hot: true,
+        trending: false,
         price: {
             oldPrice: 30,
             currentPrice: 20,
         },
-        image: {
-            url: orangeBeverage,
-            alt: 'glass of orange juice',
-        }
+        images: [
+            {
+                url: orangeBeverage1,
+                alt: "orange beverage",
+            },
+        ],
+        overview: "Neque porro quisquam est aui dolorem iesum ruia do sit amet, consectetur, adipisci velit, sed quia non num eius modi tempora incidunt ut labore et dolore magna volutatem exercitationem ullam.",
+        description: [
+            "Ratione volurtatem serui nesciunt neaue porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+            "Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        ],
+        reviews: [
+            {
+                id: createId(),
+                name: "Lorem",
+                mark: 4,
+                message: "Lorem ipsum dolor sit amet. "
+            }
+        ],
     },
     {
-        id: createId(),
         name: 'Dozen Eggs',
+        tags: ["Health", "Food", "Breakfast & Dairy", "Grocery & Staples"],
+        id: "36f95721-52c8-11ec-9b2a-0576109a5fb1",
         rate: 4,
         favorite: false,
         hot: false,
+        trending: false,
         price: {
             oldPrice: 15,
             currentPrice: 12,
         },
-        image: {
-            url: eggs,
-            alt: 'eggs',
-        }
+        images: [
+            {
+                url: eggs1,
+                alt: "eggs",
+            },
+        ],
+        overview: "Neque porro quisquam est aui dolorem iesum ruia do sit amet, consectetur, adipisci velit, sed quia non num eius modi tempora incidunt ut labore et dolore magna volutatem exercitationem ullam.",
+        description: [
+            "Ratione volurtatem serui nesciunt neaue porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+            "Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        ],
+        reviews: [
+            {
+                id: createId(),
+                name: "Lorem",
+                mark: 4,
+                message: "Lorem ipsum dolor sit amet. "
+            }
+        ],
     },
     {
-        id: createId(),
         name: 'Cooking Oil',
+        tags: ["Health", "Food", "Grocery & Staples"],
+        id: "36f95723-52c8-11ec-9b2a-0576109a5fb1",
         rate: 5,
         favorite: false,
         hot: true,
+        trending: false,
         price: {
             oldPrice: 20,
             currentPrice: 15,
         },
-        image: {
-            url: cookingOil,
-            alt: 'bottle of oil',
-        }
+        images: [
+            {
+                url: cookingOil1,
+                alt: "oil",
+            },
+        ],
+        overview: "Neque porro quisquam est aui dolorem iesum ruia do sit amet, consectetur, adipisci velit, sed quia non num eius modi tempora incidunt ut labore et dolore magna volutatem exercitationem ullam.",
+        description: [
+            "Ratione volurtatem serui nesciunt neaue porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+            "Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        ],
+        reviews: [
+            {
+                id: createId(),
+                name: "Lorem",
+                mark: 4,
+                message: "Lorem ipsum dolor sit amet. "
+            }
+        ],
     },
     {
-        id: createId(),
         name: 'Body Lotion',
+        tags: ["Health", "Personal Care"],
+        id: "36f95725-52c8-11ec-9b2a-0576109a5fb1",
         rate: 3,
         favorite: false,
         hot: false,
+        trending: false,
         price: {
             oldPrice: 30,
             currentPrice: 20,
         },
-        image: {
-            url: bodyLotion,
-            alt: 'lotion',
-        }
+        images: [
+            {
+                url: bodyLotion1,
+                alt: "body lotion",
+            },
+        ],
+        overview: "Neque porro quisquam est aui dolorem iesum ruia do sit amet, consectetur, adipisci velit, sed quia non num eius modi tempora incidunt ut labore et dolore magna volutatem exercitationem ullam.",
+        description: [
+            "Ratione volurtatem serui nesciunt neaue porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Ut enim ad minima veniam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+            "Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+        ],
+        reviews: [
+            {
+                id: createId(),
+                name: "Lorem",
+                mark: 4,
+                message: "Lorem ipsum dolor sit amet. "
+            }
+        ],
     },
 ]
+
+const detailToProduct = (item: ProductDetailType): ProductType => {
+    let product: ProductType = {
+        id: item.id,
+        name: item.name,
+        rate: item.rate,
+        image: item.images[0],
+        price: item.price,
+        favorite: item.favorite,
+        hot: item.hot,
+    };
+
+    return product;
+}
+
+export const productsAPI = {
+    getProducts: (startIndex: number, endIndex: number) => {
+
+        let products: ProductType[] = [];
+
+        for (let i = startIndex; i < endIndex; i++) {
+            products.push(detailToProduct(productsDetail[i]));
+        }
+
+        return products;
+    },
+
+    getDetailProduct: (id: string) => {
+        let product = productsDetail.find((item) => item.id === id)
+        if (product) {
+            return product;
+        }
+        return null;
+    },
+
+    getTrendingProducts: (startIndex: number, endIndex: number) => {
+
+        let trendingProductsDetail = productsDetail.filter((product) => product.trending)
+        let trendingProducts: ProductType[] = [];
+
+        for (let i = startIndex; i < endIndex; i++) {
+            trendingProducts.push(detailToProduct(trendingProductsDetail[i]));
+        }
+
+        return trendingProducts;
+    },
+
+    getTotalCount: () => {
+        return productsDetail.length;
+    }
+}

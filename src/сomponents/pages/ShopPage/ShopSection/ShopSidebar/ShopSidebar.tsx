@@ -5,7 +5,7 @@ import { Rate, Slider } from 'antd';
 import { SearchInput } from '../../../../common/SearchInput/SearchInput';
 import { Checkbox } from '../../../../common/Checkbox/Checkbox';
 import { ProductType } from '../../../../../types/types';
-import { products } from '../../../../../api/api';
+import { productsAPI } from '../../../../../api/api';
 
 type SidebarTrendingItemProps = {
   product: ProductType;
@@ -135,7 +135,7 @@ export const ShopSidebar: React.FC<ShopSidebarPropsType> = (props) => {
     backgroundColor: "#F6FAFB",
   }
 
-  const trendingItemsList = products.slice(0, 5).map(p => {
+  const trendingItemsList = productsAPI.getTrendingProducts(0, 5).map(p => {
     return <SidebarTrendingItem key={p.id} product={p} />
   })
 

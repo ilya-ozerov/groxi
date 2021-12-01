@@ -5,13 +5,13 @@ import { Paginator } from '../../../common/Paginator/Paginator';
 
 import { ProductItem } from '../../../common/ProductItem/ProductItem';
 
-import { products } from '../../../../api/api';
+import { productsAPI } from '../../../../api/api';
 import { ShopSidebar } from './ShopSidebar/ShopSidebar';
 
 
 export const ShopSection: React.FC<ShopSectionPropsType> = (props) => {
 
-  const productList = products.slice(0, 9).map(p => {
+  const productList = productsAPI.getProducts(0, 9).map(p => {
     return <ProductItem key={p.id} className='trending__item' product={p} />
   })
 
@@ -34,7 +34,7 @@ export const ShopSection: React.FC<ShopSectionPropsType> = (props) => {
                   </div>
                 </div>
                 <div className="shop-section__total">
-                  Showing 1–9 of 12 results
+                  Showing 1–9 of {productsAPI.getTotalCount()} results
                 </div>
               </div>
               <div className="shop-section__sorting">
