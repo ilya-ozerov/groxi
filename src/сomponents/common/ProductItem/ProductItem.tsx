@@ -3,7 +3,7 @@ import './ProductItem.scss';
 import { Rate } from 'antd';
 import { ProductType } from '../../../types/types';
 import { HeartFilled } from '@ant-design/icons';
-import { Link, NavLink, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const ProductItem: React.FC<ProductItemProps> = ({ className, product }) => {
   return (
