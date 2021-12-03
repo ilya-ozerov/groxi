@@ -13,8 +13,8 @@
         gap: 30px;
 
         @media (max-width: 1125px) {
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr 100px;
+            display: flex;
+            flex-direction: column;
         }
     }
 
