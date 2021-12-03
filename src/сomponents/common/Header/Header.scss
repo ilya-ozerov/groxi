@@ -14,10 +14,15 @@
         justify-self: end;
         display: flex;
         align-items: center;
+
+        @media (max-width: 1125px) {
+            display: none;
+        }
     }
     &__list {
         display: flex;
         justify-items: center;
+
         li {
             font-size: 20px;
             font-family: "Barlow", sans-serif;
@@ -33,6 +38,9 @@
     }
     &__services {
         display: flex;
+        @media (max-width: 1125px) {
+            display: none;
+        }
     }
     &__icon {
         display: flex;
