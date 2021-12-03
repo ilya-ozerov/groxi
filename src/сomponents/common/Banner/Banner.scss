@@ -3,6 +3,12 @@
     padding: 50px 0px 130px 0px;
     position: relative;
     min-height: 50vh;
+
+    @media (max-width: 1125px) {
+        padding: 50px 0px 50px 0px;
+        min-height: 30vh;
+    }
+
     &__products-bag-background {
         position: absolute;
         bottom: 0;
@@ -35,6 +41,10 @@
         background-color: #fff;
         border-top: 3px solid #9fcb22;
         font-family: "Jost", sans-serif;
+
+        @media (max-width: 1125px) {
+            padding: 25px 34px;
+        }
     }
 
     &__navigation {

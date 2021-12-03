@@ -1,23 +1,44 @@
 .cards-section {
     padding: 140px 0px;
     background-color: #f6fafb;
+
+    @media (max-width: 1125px) {
+        padding: 70px 0px;
+    }
+
     &__body {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
         gap: 30px;
+
+        @media (max-width: 1125px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+            text-align: center;
+        }
     }
 
     &__card {
         padding: 80px 58px;
         background-color: #fff;
         border-top: 3px solid #9fcb22;
+        @media (max-width: 1125px) {
+            padding: 40px 29px;
+            display: grid;
+            justify-items: center;
+        }
+
+        @media (max-width: 1125px) {
+            padding: 20px 15px;
+        }
     }
     &__image {
         width: 105px;
         height: 85px;
         display: grid;
         align-items: center;
+        justify-items: center;
         margin-bottom: 30px;
     }
     &__title {
