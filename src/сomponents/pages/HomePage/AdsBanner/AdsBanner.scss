@@ -1,5 +1,10 @@
 .ads-banner {
     padding: 140px 0px;
+
+    @media (max-width: 1125px) {
+        padding: 70px 0px;
+    }
+
     &__body {
         font-family: "Jost", sans-serif;
         color: #ffffff;
@@ -8,6 +13,18 @@
         grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
         gap: 30px;
+
+        @media (max-width: 1125px) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 120px 1fr;
+            grid-template-areas: "second second" "first third";
+        }
+        @media (max-width: 767px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 120px 120px 224px;
+            grid-template-areas: "first" "second" "third";
+            text-align: center;
+        }
     }
     &__column {
         &:nth-child(1) {
@@ -15,6 +32,22 @@
         }
         &:nth-child(2) {
             padding: 60px 0px 60px 0px;
+        }
+
+        @media (max-width: 1125px) {
+            &:nth-child(1) {
+                padding: 0px;
+                grid-area: first;
+            }
+            &:nth-child(2) {
+                padding: 0px;
+                grid-area: second;
+                text-align: center;
+            }
+            &:nth-child(3) {
+                padding: 0px;
+                grid-area: third;
+            }
         }
     }
 
@@ -32,6 +65,12 @@
             text-align: left;
             background: url("../../../../assets/images/adsBanner/rightArrow.png") 75% center no-repeat;
         }
+        @media (max-width: 767px) {
+            button {
+                background-position: 100%;
+                text-align: center;
+            }
+        }
     }
 
     &__title {
@@ -43,6 +82,14 @@
         img {
             width: 100%;
             height: 100%;
+        }
+        @media (max-width: 767px) {
+            display: grid;
+            align-items: center;
+            justify-content: end;
+            img {
+                max-width: 100%;
+            }
         }
     }
 }
