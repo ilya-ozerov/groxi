@@ -27,10 +27,29 @@
         grid-template-columns: 1fr 1fr;
         background-color: #fff;
         border-top: 3px solid #9fcb22;
+
+        @media (max-width: 1125px) {
+            padding: 50px 35px;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+            align-items: center;
+            justify-items: center;
+        }
+        @media (max-width: 767px) {
+            padding: 10px;
+        }
     }
     &__image {
+        img {
+            max-width: 100%;
+        }
     }
     &__info {
+        @media (max-width: 1125px) {
+            display: grid;
+            justify-items: center;
+            text-align: center;
+        }
     }
     &__title {
         font-family: "Jost", sans-serif;
@@ -38,6 +57,9 @@
         font-size: 200px;
         color: #252932;
         margin-bottom: 20px;
+        @media (max-width: 767px) {
+            font-size: 150px;
+        }
     }
     &__subtitle {
         color: #9fcb22;
