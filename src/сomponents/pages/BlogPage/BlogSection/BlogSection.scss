@@ -1,10 +1,19 @@
 .blog-section {
     padding: 140px 0px 0px 0px;
 
+    @media (max-width: 1125px) {
+        padding: 70px 0px 0px 0px;
+    }
+
     &__body {
         display: grid;
         grid-template-columns: 1fr 255px;
         column-gap: 30px;
+
+        @media (max-width: 767px) {
+            display: flex;
+            flex-direction: column-reverse;
+        }
     }
     &__posts {
     }
@@ -16,6 +25,10 @@
         grid-auto-rows: 1fr;
 
         margin-bottom: 30px;
+
+        @media (max-width: 1125px) {
+            grid-template-columns: repeat(1, minmax(320px, 1fr));
+        }
     }
     &__item {
     }
