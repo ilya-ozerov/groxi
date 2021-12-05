@@ -1,9 +1,19 @@
 .form-section {
     padding: 140px 0px;
+
+    @media (max-width: 1125px) {
+        padding: 70px 0px;
+    }
+
     &__body {
         display: grid;
         grid-template-columns: 2fr 1fr;
         grid-template-rows: 1fr;
+
+        @media (max-width: 1125px) {
+            display: flex;
+            flex-direction: column;
+        }
     }
     &__form {
     }
@@ -11,6 +21,10 @@
         padding: 80px 40px;
         background-color: #9fcc22;
         color: #f6fafb;
+
+        @media (max-width: 767px) {
+            padding: 10px;
+        }
     }
     &__title {
         font-size: 45px;
@@ -62,6 +76,10 @@
     background-color: #f6fafb;
     padding: 80px 40px;
 
+    @media (max-width: 767px) {
+        padding: 10px;
+    }
+
     &__title {
         font-size: 45px;
         font-family: "Jost", sans-serif;
@@ -83,6 +101,11 @@
         row-gap: 23px;
 
         margin-bottom: 39px;
+
+        @media (max-width: 767px) {
+            display: flex;
+            flex-direction: column;
+        }
     }
     &__name {
         grid-area: name;
