@@ -8,6 +8,12 @@
         gap: 30px;
 
         align-items: start;
+
+        @media (max-width: 767px) {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
     }
 
     // shop
@@ -16,6 +22,12 @@
         grid-template-columns: 1fr;
         grid-template-rows: 45px 1fr;
         gap: 40px;
+        @media (max-width: 767px) {
+            display: flex;
+            flex-direction: column;
+
+            gap: 30px;
+        }
     }
 
     &__settings {
@@ -24,6 +36,12 @@
         grid-template-rows: 1fr;
         grid-template-areas: "view view sorting";
         gap: 30px;
+
+        @media (max-width: 767px) {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 20px;
+        }
     }
     &__view {
         grid-area: view;
@@ -81,8 +99,19 @@
         gap: 30px;
         grid-template-columns: repeat(3, minmax(250px, 1fr));
         grid-auto-rows: 1fr;
+
+        @media (max-width: 1125px) {
+            grid-template-columns: repeat(2, minmax(250px, 1fr));
+        }
+
+        @media (max-width: 767px) {
+            grid-template-columns: repeat(1, minmax(250px, 1fr));
+        }
     }
     &__paginator {
         justify-self: end;
+        @media (max-width: 767px) {
+            justify-self: center;
+        }
     }
 }
