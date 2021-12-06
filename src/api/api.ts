@@ -37,7 +37,7 @@ import cookingOil1 from '../assets/images/detailPage/products/cookingOil/cooking
 
 import bodyLotion1 from '../assets/images/detailPage/products/bodyLotion/bodyLotion1.png';
 
-export const productsDetail: ProductDetailType[] = [
+const productsDetail: ProductDetailType[] = [
     {
         name: 'Strawberries',
         tags: ["Food", "Fruits", "Health", "Fruits & Vegetables"],
@@ -481,16 +481,77 @@ const detailToProduct = (item: ProductDetailType): ProductType => {
     return product;
 }
 
+const _compareFunction = {
+    lowPrice: (a: ProductDetailType, b: ProductDetailType) => {
+        if (a.price.currentPrice < b.price.currentPrice) {
+            return -1;
+        }
+        if (a.price.currentPrice > b.price.currentPrice) {
+            return 1;
+        }
+        return 0;
+    },
+    highPrice: (a: ProductDetailType, b: ProductDetailType) => {
+        if (a.price.currentPrice > b.price.currentPrice) {
+            return -1;
+        }
+        if (a.price.currentPrice < b.price.currentPrice) {
+            return 1;
+        }
+        return 0;
+    },
+    rate: (a: ProductDetailType, b: ProductDetailType) => {
+        if (a.price.currentPrice < b.price.currentPrice) {
+            return -1;
+        }
+        if (a.price.currentPrice > b.price.currentPrice) {
+            return 1;
+        }
+        return 0;
+    },
+}
+
+const sortingProducts = (products: ProductDetailType[], sorting: SortingType) => {
+
+    const newProductsDetail = [...productsDetail];
+
+    switch (sorting) {
+        case "price:HighToLow": {
+            return newProductsDetail.sort(_compareFunction.highPrice);
+        }
+        case "price:LowToHigh": {
+            return newProductsDetail.sort(_compareFunction.lowPrice);
+        }
+        case "rate": {
+            return newProductsDetail.sort(_compareFunction.rate);
+        }
+    }
+
+}
+
 export const productsAPI = {
-    getProducts: (startIndex: number, endIndex: number) => {
+    getProducts: (startIndex: number, endIndex: number, sorting?: SortingType) => {
 
         let products: ProductType[] = [];
 
-        for (let i = startIndex; i < endIndex; i++) {
-            products.push(detailToProduct(productsDetail[i]));
+        if (sorting) {
+            const sortedProducts = sortingProducts(productsDetail, sorting);
+
+            for (let i = startIndex; i < endIndex; i++) {
+                products.push(detailToProduct(sortedProducts[i]));
+            }
+
+        } else {
+            for (let i = startIndex; i < endIndex; i++) {
+                products.push(detailToProduct(productsDetail[i]));
+            }
         }
 
         return products;
+    },
+
+    getFavourites: () => {
+        return productsDetail.filter(p => p.favorite);
     },
 
     getDetailProduct: (id: string) => {
@@ -517,3 +578,5 @@ export const productsAPI = {
         return productsDetail.length;
     }
 }
+
+type SortingType = "rate" | "price:LowToHigh" | "price:HighToLow";
