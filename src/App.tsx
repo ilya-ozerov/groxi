@@ -11,6 +11,8 @@ import { BlogPage } from './сomponents/pages/BlogPage/BlogPage';
 import { ShopPage } from './сomponents/pages/ShopPage/ShopPage';
 import { ProductDetailPage } from './сomponents/pages/ProductDetailPage/ProductDetailPage';
 import { ScrollToTop } from './hoc/scrollToTop';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 export const App: React.FC = () => {
   return (
@@ -37,7 +39,9 @@ export const GroxiApp: React.FC = () => {
   return (
     <React.StrictMode>
       <BrowserRouter>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </BrowserRouter>
     </React.StrictMode>
   );
