@@ -1,5 +1,10 @@
 .product-information {
     margin-bottom: 90px;
+
+    @media (max-width: 1125px) {
+        margin-bottom: 45px;
+    }
+
     &__body {
     }
     &__nav {
@@ -9,13 +14,18 @@
         display: flex;
         padding: 20px 0px;
         border-bottom: 1px solid #deecf0;
+        gap: 40px;
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+            text-align: center;
+        }
+
         li {
             font-family: "Jost", sans-serif;
             font-weight: 500;
             font-size: 22px;
             color: #252932;
-
-            margin-right: 40px;
         }
     }
     &__active {
