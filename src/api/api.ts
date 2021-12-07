@@ -1,6 +1,6 @@
 import { v1 as createId } from 'uuid';
 
-import { ProductDetailType, ProductType } from './../types/types';
+import { FilterType, ProductDetailType, ProductType, TagType } from './../types/types';
 
 import strawberry1 from '../assets/images/detailPage/products/strawberry/strawberry1.png';
 import strawberry2 from '../assets/images/detailPage/products/strawberry/strawberry2.jpg';
@@ -36,6 +36,7 @@ import eggs1 from '../assets/images/detailPage/products/eggs/eggs1.png';
 import cookingOil1 from '../assets/images/detailPage/products/cookingOil/cookingOil1.png';
 
 import bodyLotion1 from '../assets/images/detailPage/products/bodyLotion/bodyLotion1.png';
+import { filterBetweenPrices, filterByTags, sortingProducts } from './filterFunctions';
 
 const productsDetail: ProductDetailType[] = [
     {
@@ -403,7 +404,7 @@ const productsDetail: ProductDetailType[] = [
     },
     {
         name: 'Cooking Oil',
-        tags: ["Health", "Food", "Grocery & Staples"],
+        tags: ["Grocery & Staples"],
         id: "36f95723-52c8-11ec-9b2a-0576109a5fb1",
         rate: 5,
         favorite: false,
@@ -467,7 +468,12 @@ const productsDetail: ProductDetailType[] = [
     },
 ]
 
-const detailToProduct = (item: ProductDetailType): ProductType => {
+const detailToProduct = (item: ProductDetailType): ProductType | null => {
+
+    if (!item) {
+        return null;
+    }
+
     let product: ProductType = {
         id: item.id,
         name: item.name,
@@ -476,78 +482,44 @@ const detailToProduct = (item: ProductDetailType): ProductType => {
         price: item.price,
         favorite: item.favorite,
         hot: item.hot,
+        tags: [...item.tags],
     };
 
     return product;
 }
-
-const _compareFunction = {
-    lowPrice: (a: ProductDetailType, b: ProductDetailType) => {
-        if (a.price.currentPrice < b.price.currentPrice) {
-            return -1;
-        }
-        if (a.price.currentPrice > b.price.currentPrice) {
-            return 1;
-        }
-        return 0;
-    },
-    highPrice: (a: ProductDetailType, b: ProductDetailType) => {
-        if (a.price.currentPrice > b.price.currentPrice) {
-            return -1;
-        }
-        if (a.price.currentPrice < b.price.currentPrice) {
-            return 1;
-        }
-        return 0;
-    },
-    rate: (a: ProductDetailType, b: ProductDetailType) => {
-        if (a.price.currentPrice < b.price.currentPrice) {
-            return -1;
-        }
-        if (a.price.currentPrice > b.price.currentPrice) {
-            return 1;
-        }
-        return 0;
-    },
-}
-
-const sortingProducts = (products: ProductDetailType[], sorting: SortingType) => {
-
-    const newProductsDetail = [...productsDetail];
-
-    switch (sorting) {
-        case "price:HighToLow": {
-            return newProductsDetail.sort(_compareFunction.highPrice);
-        }
-        case "price:LowToHigh": {
-            return newProductsDetail.sort(_compareFunction.lowPrice);
-        }
-        case "rate": {
-            return newProductsDetail.sort(_compareFunction.rate);
-        }
-    }
-
-}
-
 export const productsAPI = {
-    getProducts: (startIndex: number, endIndex: number, sorting?: SortingType) => {
-
+    getProducts: (startIndex: number, endIndex: number, filter: FilterType) => {
         let products: ProductType[] = [];
 
-        if (sorting) {
-            const sortedProducts = sortingProducts(productsDetail, sorting);
-
-            for (let i = startIndex; i < endIndex; i++) {
-                products.push(detailToProduct(sortedProducts[i]));
-            }
-
-        } else {
-            for (let i = startIndex; i < endIndex; i++) {
-                products.push(detailToProduct(productsDetail[i]));
-            }
+        const data = {
+            products: [] as ProductType[],
+            totalItems: 0,
         }
 
-        return products;
+        productsDetail.forEach(p => {
+            let temp = detailToProduct(p);
+            if (temp) {
+                products.push(temp);
+            }
+        })
+
+        if (filter.price) {
+            products = filterBetweenPrices(products, filter.price.top, filter.price.bottom);
+        }
+
+        if (filter.tags.length > 0) {
+            products = filterByTags(products, filter.tags);
+        }
+
+        data.totalItems = products.length;
+
+        products = sortingProducts(products, filter.sorting);
+
+        const slicedProducts = products.slice(startIndex, endIndex);
+
+        data.products = slicedProducts;
+
+        return data;
     },
 
     getFavourites: () => {
@@ -568,7 +540,12 @@ export const productsAPI = {
         let trendingProducts: ProductType[] = [];
 
         for (let i = startIndex; i < endIndex; i++) {
-            trendingProducts.push(detailToProduct(trendingProductsDetail[i]));
+            if (trendingProductsDetail[i]) {
+                let newProduct = detailToProduct(trendingProductsDetail[i]);
+                if (newProduct) {
+                    trendingProducts.push(newProduct);
+                }
+            }
         }
 
         return trendingProducts;
@@ -576,7 +553,5 @@ export const productsAPI = {
 
     getTotalCount: () => {
         return productsDetail.length;
-    }
+    },
 }
-
-type SortingType = "rate" | "price:LowToHigh" | "price:HighToLow";
