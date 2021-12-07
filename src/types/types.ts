@@ -3,10 +3,20 @@ type ImageType = {
     alt: string;
 }
 
-type TagType = "Food" | "Fruits" | "Health" | "Meat" | "Dairy" | "Beverages"
+export type TagType = "Food" | "Fruits" | "Health" | "Meat" | "Dairy" | "Beverages"
     | "Biscuits, Snacks" | "Breakfast & Dairy" | "Fruits & Vegetables" | "Home Needs"
     | "Grocery & Staples" | "Home & Kitchen" | "Household Needs" | "Meats, Frozen"
     | "Noodles, Sauces" | "Personal Care" | "Pet Care";
+
+export type SortingType = "default" | "rate" | "price:LowToHigh" | "price:HighToLow";
+export type FilterType = {
+    price: {
+        top: number;
+        bottom: number;
+    } | null;
+    tags: TagType[];
+    sorting: SortingType;
+}
 
 type RateType = 1 | 2 | 3 | 4 | 5;
 
@@ -30,6 +40,8 @@ export type ProductType = {
     price: PriceType;
     favorite: boolean;
     hot: boolean;
+
+    tags: TagType[];
 }
 
 export type ProductDetailType = {
