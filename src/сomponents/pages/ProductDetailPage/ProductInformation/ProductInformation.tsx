@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductDetailType, ReviewType } from '../../../../types/types';
+import { ReviewType } from '../../../../types/types';
 import './ProductInformation.scss';
 
 type ProductInformationPropsType = {
@@ -9,10 +9,9 @@ type ProductInformationPropsType = {
 };
 export const ProductInformation: React.FC<ProductInformationPropsType> = (props) => {
 
-
     const information = props.description.map((str, i) => {
         return <p key={i}>{str}</p>
-    })
+    });
 
     return (
         <section className="product-information">
