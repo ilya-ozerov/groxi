@@ -2,6 +2,7 @@ import React from 'react';
 import './AdsBanner.scss';
 
 import bannerImage from '../../../../assets/images/adsBanner/bannerImage.png'
+import { Link } from 'react-router-dom';
 
 
 export const AdsBanner: React.FC<AdsBannerProps> = (props) => {
@@ -13,9 +14,11 @@ export const AdsBanner: React.FC<AdsBannerProps> = (props) => {
             <div className="ads-banner__subtitle">
               <span>50% </span>OFF
             </div>
-            <div className="ads-banner__button button">
-              <button>Shop now</button>
-            </div>
+            <Link to="/shop">
+              <div className="ads-banner__button button">
+                <button>Shop now</button>
+              </div>
+            </Link>
           </div>
           <div className="ads-banner__column">
             <div className="ads-banner__title">
