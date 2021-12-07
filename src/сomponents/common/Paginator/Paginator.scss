@@ -43,4 +43,9 @@
             }
         }
     }
+    &__active {
+        background-color: #f6fafb;
+        transform: scale(1.1);
+        transition-duration: 0.2s;
+    }
 }
