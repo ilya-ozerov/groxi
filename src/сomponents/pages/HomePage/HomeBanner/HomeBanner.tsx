@@ -3,6 +3,7 @@ import { Header } from '../../../common/Header/Header';
 import './HomeBanner.scss';
 import background from '../../../../assets/images/banner/background.png';
 import vegetables_bg from '../../../../assets/images/banner/vegetables_bg.png';
+import { Link } from 'react-router-dom';
 
 type HomeBannerPropsType = {
 }
@@ -37,12 +38,17 @@ export const HomeBanner: React.FC<HomeBannerPropsType> = (props) => {
           </div>
 
           <div className="home-banner__buttons buttons">
-            <div className="buttons__shop button">
-              <button>shop now</button>
-            </div>
-            <div className="buttons__read button">
-              <button>read more</button>
-            </div>
+            <Link to="/shop" >
+              <div className="buttons__shop button">
+                <button>shop now</button>
+              </div>
+            </Link>
+
+            <Link to="/about" >
+              <div className="buttons__read button">
+                <button>read more</button>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

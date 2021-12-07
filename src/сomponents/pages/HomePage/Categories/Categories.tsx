@@ -4,6 +4,7 @@ import './Categories.scss';
 import productBag from '../../../../assets/images/categories/productBag.png';
 import juice from '../../../../assets/images/categories/juice.png';
 import lemon from '../../../../assets/images/categories/lemon.png';
+import { Link } from 'react-router-dom';
 
 type CategoriesPropsType = {}
 export const Categories: React.FC<CategoriesPropsType> = (props) => {
@@ -34,9 +35,11 @@ export const Category: React.FC<CategoryProps> = (props) => {
     <section className="categories__item" style={{ backgroundColor: props.color }}>
 
       <div className="categories__title">{props.title}</div>
-      <div className="categories__button button">
-        <button>Shop now</button>
-      </div>
+      <Link to="/shop">
+        <div className="categories__button button">
+          <button>Shop now</button>
+        </div>
+      </Link>
       <div className="categories__image">
         <img src={props.imageUrl} alt={props.imageAlt} />
       </div>

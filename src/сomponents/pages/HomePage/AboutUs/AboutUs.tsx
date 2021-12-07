@@ -3,6 +3,7 @@ import './AboutUs.scss';
 
 import mainBg from '../../../../assets/images/aboutUs/mainBg.png';
 import rightBgPicture from '../../../../assets/images/aboutUs/rightBgPicture.png';
+import { Link } from 'react-router-dom';
 
 export const AboutUs: React.FC<AboutUsProps> = (props) => {
   return (
@@ -29,9 +30,12 @@ export const AboutUs: React.FC<AboutUsProps> = (props) => {
               </p>
             </div>
 
-            <div className="about__button button">
-              <button>Read More</button>
-            </div>
+            <Link to="/about">
+              <div className="about__button button">
+                <button>Read More</button>
+              </div>
+            </Link>
+
           </div>
         </div>
       </div>

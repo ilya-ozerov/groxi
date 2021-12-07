@@ -3,6 +3,7 @@ import './CardsSection.scss';
 
 import hand from '../../../../assets/images/aboutPage/cards/hand.png';
 import growChart from '../../../../assets/images/aboutPage/cards/growChart.png';
+import { Link } from 'react-router-dom';
 
 export const CardsSection: React.FC<CardsSectionPropsType> = (props) => {
   return (
@@ -20,11 +21,13 @@ export const CardsSection: React.FC<CardsSectionPropsType> = (props) => {
               eius modi tempora incidunt ut labore et dolore ma
               volutatem exercitationem ullam.
             </div>
-            <div className="cards-section__button button">
-              <button>
-                Shop now
-              </button>
-            </div>
+            <Link to="/shop">
+              <div className="cards-section__button button">
+                <button>
+                  Shop now
+                </button>
+              </div>
+            </Link>
           </div>
 
           <div className="cards-section__card">
@@ -38,11 +41,13 @@ export const CardsSection: React.FC<CardsSectionPropsType> = (props) => {
               eius modi tempora incidunt ut labore et dolore ma
               volutatem exercitationem ullam.
             </div>
-            <div className="cards-section__button button">
-              <button>
-                Shop now
-              </button>
-            </div>
+            <Link to="/shop">
+              <div className="cards-section__button button">
+                <button>
+                  Shop now
+                </button>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import quality from '../../../assets/images/ourFeatures/quality.png';
 import delivery from '../../../assets/images/ourFeatures/delivery.png';
 import onlineOrder from '../../../assets/images/ourFeatures/onlineOrder.png';
 import service from '../../../assets/images/ourFeatures/service.png';
+import { Link } from 'react-router-dom';
 
 type OurFeaturesProps = {
   image: string;
@@ -48,9 +49,11 @@ export const OurFeatures: React.FC<OurFeaturesProps> = (props) => {
               <img src={props.image} alt="basket of products" />
             </div>
             {props.showButton &&
-              <div className="our-features__button button">
-                <button>Shop now</button>
-              </div>
+              <Link to="/shop">
+                <div className="our-features__button button">
+                  <button>Shop now</button>
+                </div>
+              </Link>
             }
 
           </div>
