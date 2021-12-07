@@ -1,15 +1,84 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 import './ShopSidebar.scss';
 
 import { Rate, Slider } from 'antd';
 import { SearchInput } from '../../../../common/SearchInput/SearchInput';
-import { Checkbox } from '../../../../common/Checkbox/Checkbox';
 import { ProductType } from '../../../../../types/types';
-import { productsAPI } from '../../../../../api/api';
+import { selectCurrentFilter, selectTrending } from '../../../../../redux/productsSelectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTrendingProductsThunkCreator, productsActions } from '../../../../../redux/productsReducer';
+import { SidebarCategories } from './SidebarCategories/SidebarCategories';
 
-type SidebarTrendingItemProps = {
-  product: ProductType;
+const SidebarPriceFilter: React.FC<SidebarPriceFilterProps> = () => {
+
+  const [priceFilterValues, setPriceFilterValues] = useState<[number, number]>([0, 0]);
+  const dispatch = useDispatch();
+  const currentFilter = useSelector(selectCurrentFilter);
+
+  // update shop filter
+  const submitPriceFilter = () => {
+    dispatch(productsActions.currentFilterChanged({
+      price: {
+        bottom: priceFilterValues[0],
+        top: priceFilterValues[1],
+      },
+      sorting: currentFilter.sorting,
+      tags: currentFilter.tags,
+    }))
+  }
+
+  // styles for antd's slider
+  const handleStyle1: CSSProperties = {
+    borderRadius: 0,
+    width: "12px",
+    height: "12px",
+    borderColor: '#9FCB22',
+    backgroundColor: '#9FCB22',
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    margin: "auto",
+  }
+  const handleStyle2: CSSProperties = {
+    borderRadius: 0,
+    width: "12px",
+    height: "12px",
+    borderColor: '#9FCB22',
+    backgroundColor: '#9FCB22',
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    margin: "auto",
+  }
+  const trackStyle: CSSProperties = {
+    height: '8px',
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    margin: "auto",
+    backgroundColor: "#F6FAFB",
+  }
+
+  return (
+    <div className="shop-sidebar__filter">
+      <div className="shop-sidebar__title">Filter By Price</div>
+      <div className="shop-sidebar__slider">
+        <Slider handleStyle={[handleStyle1, handleStyle2]}
+          trackStyle={[trackStyle]} range={true} value={priceFilterValues} onChange={(value) => setPriceFilterValues(value)} />
+      </div>
+
+      <span className="shop-sidebar__button button">
+        <button onClick={submitPriceFilter}>filter</button>
+      </span>
+
+      <span className="shop-sidebar__price-range">Price ${priceFilterValues[0]}-${priceFilterValues[1]}</span>
+    </div>
+  );
 }
+
 const SidebarTrendingItem: React.FC<SidebarTrendingItemProps> = ({ product }) => {
   return (
     <div className="sidebar-trending__item">
@@ -36,106 +105,17 @@ const SidebarTrendingItem: React.FC<SidebarTrendingItemProps> = ({ product }) =>
   );
 }
 
-type SidebarCategoriesProps = {}
-const SidebarCategories: React.FC<SidebarCategoriesProps> = (props) => {
-  return (
-    <div className="shop-sidebar__categories">
-      <div className="shop-sidebar__title">Categories</div>
-      <ul className="shop-sidebar__list">
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" />
-          <span>Beverages</span>
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" />
-          <span>Biscuits, Snacks</span>
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" />
-          <span>Breakfast & Dairy</span>
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" />
-          <span>Fruits & Vegetables</span>
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" />
-          <span>Home Needs</span>
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" />
-          <span>Grocery & Staples</span>
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" />
-          <span>Home & Kitchen</span>
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" />
-          <span>Household Needs</span>
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" />
-          <span>Meats, Frozen</span>
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" />
-          <span>Noodles, Sauces</span>
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" />
-          <span>Personal Care</span>
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" />
-          <span>Pet Care</span>
-        </li>
-      </ul>
-
-    </div>
-  );
-}
-
-type ShopSidebarPropsType = {}
 export const ShopSidebar: React.FC<ShopSidebarPropsType> = (props) => {
+  const dispatch = useDispatch();
 
-  const handleStyle1: CSSProperties = {
-    borderRadius: 0,
-    width: "12px",
-    height: "12px",
-    borderColor: '#9FCB22',
-    backgroundColor: '#9FCB22',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    margin: "auto",
-  }
+  // request array of trending products
+  useEffect(() => {
+    dispatch(getTrendingProductsThunkCreator(5));
+  }, [])
 
-  const handleStyle2: CSSProperties = {
-    borderRadius: 0,
-    width: "12px",
-    height: "12px",
-    borderColor: '#9FCB22',
-    backgroundColor: '#9FCB22',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    margin: "auto",
-  }
+  const trendingProducts = useSelector(selectTrending);
 
-  const trackStyle: CSSProperties = {
-    height: '8px',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    margin: "auto",
-    backgroundColor: "#F6FAFB",
-  }
-
-  const trendingItemsList = productsAPI.getTrendingProducts(0, 5).map(p => {
+  const trendingItemsList = trendingProducts.map(p => {
     return <SidebarTrendingItem key={p.id} product={p} />
   })
 
@@ -146,32 +126,24 @@ export const ShopSidebar: React.FC<ShopSidebarPropsType> = (props) => {
 
       <SidebarCategories />
 
-      <div className="shop-sidebar__filter">
-        <div className="shop-sidebar__title">Filter By Price</div>
-        <div className="shop-sidebar__slider">
-          <Slider handleStyle={[handleStyle1, handleStyle2]}
-            trackStyle={[trackStyle]} range={true} defaultValue={[20, 50]} />
-        </div>
-
-        <span className="shop-sidebar__button button">
-          <button>filter</button>
-        </span>
-
-        <span className="shop-sidebar__price-range">Price $20-$50</span>
-      </div>
+      <SidebarPriceFilter />
 
       <div className="shop-sidebar__trending sidebar-trending">
         <div className="shop-sidebar__title">Trending Items</div>
         <div className="sidebar-trending__items">
           {trendingItemsList}
         </div>
-
         <div className="sidebar-trending__button button">
           <button>view more</button>
         </div>
-
       </div>
 
     </div>
   );
 }
+
+type SidebarPriceFilterProps = {}
+type SidebarTrendingItemProps = {
+  product: ProductType;
+}
+type ShopSidebarPropsType = {}

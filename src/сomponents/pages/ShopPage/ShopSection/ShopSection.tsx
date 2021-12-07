@@ -1,18 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AppstoreFilled, BarsOutlined } from '@ant-design/icons';
 import './ShopSection.scss';
 import { Paginator } from '../../../common/Paginator/Paginator';
 
 import { ProductItem } from '../../../common/ProductItem/ProductItem';
 
-import { productsAPI } from '../../../../api/api';
 import { ShopSidebar } from './ShopSidebar/ShopSidebar';
+import { getProductsThunkCreator } from '../../../../redux/productsReducer';
+import { selectCurrentFilter, selectFirstProductIndex, selectLastProductIndex, selectProducts, selectTotalProductsCount } from '../../../../redux/productsSelectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { ShopSectionSort } from './ShopSectionSort';
 
 
 export const ShopSection: React.FC<ShopSectionPropsType> = (props) => {
 
-  const productList = productsAPI.getProducts(0, 9).map(p => {
-    return <ProductItem key={p.id} className='trending__item' product={p} />
+  const dispatch = useDispatch();
+  const currentFilter = useSelector(selectCurrentFilter);
+
+  const firstProductIndex = useSelector(selectFirstProductIndex);
+  const lastProductIndex = useSelector(selectLastProductIndex);
+
+  // Updating a product array when updating currentFilter or firstProductIndex or lastProductIndex;
+  useEffect(() => {
+    console.log('Shop Page request products');
+    dispatch(getProductsThunkCreator(firstProductIndex, lastProductIndex, currentFilter));
+  }, [currentFilter, firstProductIndex, lastProductIndex]);
+
+  const products = useSelector(selectProducts);
+  const totalProductsCount = useSelector(selectTotalProductsCount);
+
+  const productList = products.map(p => {
+    return <ProductItem key={p.id} className='shop-section__item' product={p} />
   })
 
   return (
@@ -34,18 +52,10 @@ export const ShopSection: React.FC<ShopSectionPropsType> = (props) => {
                   </div>
                 </div>
                 <div className="shop-section__total">
-                  Showing 1–9 of {productsAPI.getTotalCount()} results
+                  Showing {firstProductIndex + 1}–{lastProductIndex > totalProductsCount ? totalProductsCount : lastProductIndex} of {totalProductsCount} results
                 </div>
               </div>
-              <div className="shop-section__sorting">
-                <select>
-                  <option value="default">Default Sorting</option>
-                  <option value="rate">Rate</option>
-
-                  <option value="lowPrice">Price: Low to High</option>
-                  <option value="default">Price: High to Low</option>
-                </select>
-              </div>
+              <ShopSectionSort />
             </div>
 
             <div className="shop-section__products">
