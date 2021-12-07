@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './TrendingProducts.scss';
 import { ProductItem } from '../../../common/ProductItem/ProductItem';
 import { productsAPI } from '../../../../api/api';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectTrending } from '../../../../redux/productsSelectors';
+import { getTrendingProductsThunkCreator } from '../../../../redux/productsReducer';
 
 
 type TrendingProductsPropsType = {}
 export const TrendingProducts: React.FC<TrendingProductsPropsType> = (props) => {
 
-  const productList = productsAPI.getTrendingProducts(0, 6).map(p => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTrendingProductsThunkCreator(6));
+  }, [])
+
+  const trendingProducts = useSelector(selectTrending);
+
+  const productList = trendingProducts.map(p => {
     return <ProductItem key={p.id} className='trending__item' product={p} />
   });
 

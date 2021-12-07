@@ -1,14 +1,27 @@
-import React from 'react';
-import { v1 as createId } from 'uuid';
+import React, { useEffect } from 'react';
 import './FeaturedProducts.scss';
 
 import background from '../../../../assets/images/featuredProducts/background.png';
 import { ProductItem } from '../../../common/ProductItem/ProductItem';
-import { productsAPI } from '../../../../api/api';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentFilter, selectProducts } from '../../../../redux/productsSelectors';
+import { getProductsThunkCreator } from '../../../../redux/productsReducer';
 
 export const FeaturedProducts: React.FC<FeaturedProductsProps> = (props) => {
 
-  const productsList = productsAPI.getProducts(6, 12).map(p => {
+  const dispatch = useDispatch();
+
+  const filter = useSelector(selectCurrentFilter);
+
+  useEffect(() => {
+    console.log('Home Page request products');
+    dispatch(getProductsThunkCreator(0, 6, filter));
+  }, [])
+
+  const products = useSelector(selectProducts);
+
+
+  const productsList = products.map(p => {
     return <ProductItem key={p.id} product={p} className="featured-products__item" />
   })
 
