@@ -7,10 +7,20 @@ import twitterIcon from '../../../assets/images/footer/Twitter.png';
 import linkedinIcon from '../../../assets/images/footer/Linkedin.png';
 import pinterestIcon from '../../../assets/images/footer/Pinterest.png';
 import instagramIcon from '../../../assets/images/footer/Instagram.png';
+import { CollapseItem } from '../Collapse/Collapse';
 
 type FooterPropsType = {}
 
 export const Footer: React.FC<FooterPropsType> = (props) => {
+
+  const CollapseItemStyle = {
+    item: "footer__collapse collapse",
+    itemTitle: "collapse__title footer__title",
+    itemBody: "collapse__body",
+    itemIcon: "collapse__icon",
+    itemActive: "collapse__active",
+  }
+
   return (
     <footer className="footer">
       <div className="container">
@@ -81,6 +91,54 @@ export const Footer: React.FC<FooterPropsType> = (props) => {
                 <li>17.30 – 00.00</li>
               </ul>
             </div>
+
+            <CollapseItem title="Store Location" style={CollapseItemStyle}>
+              <ul className="footer__information">
+                <li>Address:</li>
+                <li>121 King Street Melbourne,3000,<br /> Australia</li>
+                <li>Email:</li>
+                <li>info@groxistore.com</li>
+                <li>Phone:</li>
+                <li>+1 23 45 6789</li>
+              </ul>
+            </CollapseItem>
+
+            <CollapseItem title="Useful Links" style={CollapseItemStyle}>
+              <ul className="footer__list">
+                <li>About us</li>
+                <li>Blog</li>
+                <li>Check out</li>
+                <li>Contact</li>
+                <li>Service</li>
+                <li>Shop</li>
+              </ul>
+            </CollapseItem>
+
+            <CollapseItem title="Categories" style={CollapseItemStyle}>
+              <ul className="footer__list">
+                <li>Fruits & Vegetables</li>
+                <li>Dairy Products</li>
+                <li>Package Foods</li>
+                <li>Beverage</li>
+                <li>Health & Wellness</li>
+                <li>Meat Varieties</li>
+              </ul>
+            </CollapseItem>
+
+            <CollapseItem title="Opening Hours" style={CollapseItemStyle}>
+              <ul className="footer__information">
+                <li>Monday – Saturday</li>
+                <li>12.00 – 14.45</li>
+
+
+                <li>Sunday – Thursday</li>
+                <li>17.30 – 00.00</li>
+
+                <li>Friday – Saturday</li>
+                <li>17.30 – 00.00</li>
+              </ul>
+            </CollapseItem>
+
           </div>
         </div>
       </div>
