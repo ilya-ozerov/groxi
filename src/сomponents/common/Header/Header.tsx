@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Header.scss';
 import logo from '../../../assets/images/header/logo.svg';
 
@@ -7,14 +7,34 @@ import accountIcon from '../../../assets/images/header/accountIcon.png';
 import wishListIcon from '../../../assets/images/header/wishListIcon.png';
 import cartIcon from '../../../assets/images/header/cartIcon.png';
 import { NavLink } from 'react-router-dom';
+import { ModileMenu } from './MobileMenu/MobileMenu';
 
 type HeaderPropsType = {
   className?: string;
 }
 
 export const Header: React.FC<HeaderPropsType> = (props) => {
+
+  const [isStickyMod, setIsStickyMod] = useState(false);
+
+  const scrollHandler = () => {
+    if (window.scrollY >= 50) {
+      setIsStickyMod(true)
+    } else {
+      setIsStickyMod(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    }
+  }, []);
+
   return (
-    <header className={`header ${props.className}`}>
+    <header className={isStickyMod ? `${props.className} header sticky-header` : `${props.className} header`}>
       <div className="container">
         <div className="header__row">
           <div className="header__logo">
@@ -53,8 +73,10 @@ export const Header: React.FC<HeaderPropsType> = (props) => {
             <div className="header__icon">
               <img src={cartIcon} alt="cart icon" />
             </div>
-
           </div>
+
+          <ModileMenu className="header__mobile-menu" />
+
         </div>
       </div>
     </header>

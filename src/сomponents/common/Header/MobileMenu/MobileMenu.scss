@@ -1,0 +1,125 @@
+.mobile-menu {
+    position: relative;
+    z-index: 3;
+
+    &__active {
+        background-color: #f6fafb;
+        box-shadow: 0px 2px 5px #cccce3;
+        transition-duration: 0.45s;
+    }
+
+    &__burger {
+        height: 59px;
+        width: 60px;
+
+        display: grid;
+        align-items: center;
+        align-content: center;
+        justify-items: center;
+        justify-content: center;
+        grid-template: repeat(3, 7px) / 1fr;
+        user-select: none;
+        cursor: pointer;
+
+        &::before {
+            content: " ";
+            height: 2px;
+            width: 25px;
+            background-color: rgba(0, 0, 0, 1);
+        }
+
+        div {
+            height: 2px;
+            width: 25px;
+            background-color: rgba(0, 0, 0, 1);
+        }
+
+        &::after {
+            content: " ";
+            height: 2px;
+            width: 25px;
+            background-color: rgba(0, 0, 0, 1);
+        }
+    }
+
+    &__body {
+        position: absolute;
+        width: 30vw;
+        right: 0px;
+        top: 70px;
+
+        background-color: #f6fafb;
+        box-shadow: 0px 2px 5px #cccce3;
+
+        padding: 20px;
+
+        overflow: hidden;
+
+        @media (max-width: 767px) {
+            right: -10px;
+            width: 100vw;
+        }
+    }
+    &__list {
+        margin-bottom: 30px;
+        text-align: center;
+        li {
+            user-select: none;
+            cursor: pointer;
+
+            font-size: 30px;
+
+            font-family: "Barlow", sans-serif;
+            padding: 10px;
+
+            margin-bottom: 15px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: #252932;
+            }
+        }
+    }
+
+    &__services {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    &__icon {
+        width: 50px;
+        height: 50px;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        box-shadow: 0px 0px 2px #cccce3;
+    }
+}
+
+@keyframes show-menu {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.menu-transition {
+    &-enter {
+        animation: show-menu 0.35s ease-in-out;
+    }
+    &-enter-active {
+    }
+    &-exit {
+        animation: show-menu 0.35s ease-in-out reverse;
+    }
+    &-exit-active {
+    }
+}
