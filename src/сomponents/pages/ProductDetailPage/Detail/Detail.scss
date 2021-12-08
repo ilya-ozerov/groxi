@@ -16,21 +16,17 @@
         grid-template-areas: "gallery photo info";
 
         @media (max-width: 1125px) {
-            grid-template-rows: 1fr 96px;
-            grid-template-columns: 1fr 1fr;
-            grid-template-areas: "photo info" "gallery info";
-        }
-
-        @media (max-width: 767px) {
             display: flex;
             flex-direction: column;
-
             text-align: center;
         }
     }
     // first column
     &__gallery {
         grid-area: gallery;
+        @media (max-width: 1125px) {
+            order: 2;
+        }
     }
 
     // second column
@@ -38,6 +34,9 @@
     &__image {
         grid-area: photo;
         background-color: #f6fafb;
+        @media (max-width: 1125px) {
+            order: 1;
+        }
         img {
             width: 100%;
             height: 100%;
@@ -48,6 +47,9 @@
     // third column
     &__information {
         grid-area: info;
+        @media (max-width: 1125px) {
+            order: 3;
+        }
     }
     &__title {
         font-family: "Jost", sans-serif;
@@ -82,6 +84,10 @@
         margin-bottom: 30px;
 
         gap: 15px;
+
+        @media (max-width: 1125px) {
+            justify-content: center;
+        }
 
         @media (max-width: 767px) {
             flex-direction: column;
