@@ -1,5 +1,14 @@
 .shop-section {
     padding-top: 140px;
+
+    @media (max-width: 1125px) {
+        padding-top: 70px;
+    }
+
+    @media (max-width: 830px) {
+        padding-top: 30px;
+    }
+
     &__body {
         width: 100%;
         display: grid;
@@ -9,7 +18,7 @@
 
         align-items: start;
 
-        @media (max-width: 767px) {
+        @media (max-width: 830px) {
             display: flex;
             flex-direction: column;
             align-items: stretch;
