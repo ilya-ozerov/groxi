@@ -92,53 +92,57 @@ export const Footer: React.FC<FooterPropsType> = (props) => {
               </ul>
             </div>
 
-            <CollapseItem title="Store Location" style={CollapseItemStyle}>
-              <ul className="footer__information">
-                <li>Address:</li>
-                <li>121 King Street Melbourne,3000,<br /> Australia</li>
-                <li>Email:</li>
-                <li>info@groxistore.com</li>
-                <li>Phone:</li>
-                <li>+1 23 45 6789</li>
-              </ul>
-            </CollapseItem>
+            <div className="footer__mobile-column">
+              <CollapseItem title="Store Location" className="footer__collapse" titleStyle="footer__collapse-title">
+                <ul className="footer__information">
+                  <li>Address:</li>
+                  <li>121 King Street Melbourne,3000,<br /> Australia</li>
+                  <li>Email:</li>
+                  <li>info@groxistore.com</li>
+                  <li>Phone:</li>
+                  <li>+1 23 45 6789</li>
+                </ul>
+              </CollapseItem>
+            </div>
+            <div className="footer__mobile-column">
+              <CollapseItem title="Useful Links" className="footer__collapse" titleStyle="footer__collapse-title">
+                <ul className="footer__list">
+                  <li>About us</li>
+                  <li>Blog</li>
+                  <li>Check out</li>
+                  <li>Contact</li>
+                  <li>Service</li>
+                  <li>Shop</li>
+                </ul>
+              </CollapseItem>
+            </div>
+            <div className="footer__mobile-column">
+              <CollapseItem title="Categories" className="footer__collapse" titleStyle="footer__collapse-title">
+                <ul className="footer__list">
+                  <li>Fruits & Vegetables</li>
+                  <li>Dairy Products</li>
+                  <li>Package Foods</li>
+                  <li>Beverage</li>
+                  <li>Health & Wellness</li>
+                  <li>Meat Varieties</li>
+                </ul>
+              </CollapseItem>
+            </div>
+            <div className="footer__mobile-column">
+              <CollapseItem title="Opening Hours" className="footer__collapse" titleStyle="footer__collapse-title">
+                <ul className="footer__information">
+                  <li>Monday – Saturday</li>
+                  <li>12.00 – 14.45</li>
 
-            <CollapseItem title="Useful Links" style={CollapseItemStyle}>
-              <ul className="footer__list">
-                <li>About us</li>
-                <li>Blog</li>
-                <li>Check out</li>
-                <li>Contact</li>
-                <li>Service</li>
-                <li>Shop</li>
-              </ul>
-            </CollapseItem>
 
-            <CollapseItem title="Categories" style={CollapseItemStyle}>
-              <ul className="footer__list">
-                <li>Fruits & Vegetables</li>
-                <li>Dairy Products</li>
-                <li>Package Foods</li>
-                <li>Beverage</li>
-                <li>Health & Wellness</li>
-                <li>Meat Varieties</li>
-              </ul>
-            </CollapseItem>
+                  <li>Sunday – Thursday</li>
+                  <li>17.30 – 00.00</li>
 
-            <CollapseItem title="Opening Hours" style={CollapseItemStyle}>
-              <ul className="footer__information">
-                <li>Monday – Saturday</li>
-                <li>12.00 – 14.45</li>
-
-
-                <li>Sunday – Thursday</li>
-                <li>17.30 – 00.00</li>
-
-                <li>Friday – Saturday</li>
-                <li>17.30 – 00.00</li>
-              </ul>
-            </CollapseItem>
-
+                  <li>Friday – Saturday</li>
+                  <li>17.30 – 00.00</li>
+                </ul>
+              </CollapseItem>
+            </div>
           </div>
         </div>
       </div>
@@ -174,6 +178,5 @@ export const Footer: React.FC<FooterPropsType> = (props) => {
         </div>
       </div>
     </footer>
-
   );
 }

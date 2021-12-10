@@ -21,6 +21,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            gap: 30px;
         }
         @media (max-width: 767px) {
             margin-bottom: 50px;
@@ -30,6 +31,21 @@
         @media (max-width: 1125px) {
             display: none;
         }
+    }
+    &__mobile-column {
+        display: none;
+        @media (max-width: 1125px) {
+            display: block;
+        }
+    }
+    &__collapse-title {
+        cursor: pointer;
+
+        display: flex;
+        gap: 20px;
+        font-family: "Jost", sans-serif;
+        font-size: 23px;
+        font-weight: 500;
     }
     &__collapse {
         display: none;
@@ -215,64 +231,5 @@
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-}
-
-.collapse {
-    text-align: center;
-    width: 80%;
-    &__title {
-        position: relative;
-    }
-    &__body {
-    }
-    &__icon {
-        &:before {
-            content: "";
-            position: absolute;
-            width: 15px;
-            height: 2px;
-            right: 10px;
-            top: 50%;
-            background-color: #ffffff;
-
-            transform: rotate(45deg);
-        }
-        &:after {
-            content: "";
-            position: absolute;
-            width: 15px;
-            height: 2px;
-            right: 0;
-            top: 50%;
-            background-color: #ffffff;
-
-            transform: rotate(-45deg);
-        }
-    }
-    &__active {
-        &:before {
-            content: "";
-            position: absolute;
-            width: 15px;
-            height: 2px;
-            height: 2px;
-            right: 10px;
-            top: 50%;
-            background-color: #ffffff;
-
-            transform: rotate(-45deg);
-        }
-        &:after {
-            content: "";
-            position: absolute;
-            width: 15px;
-            height: 2px;
-            right: 0;
-            top: 50%;
-            background-color: #ffffff;
-
-            transform: rotate(45deg);
-        }
     }
 }

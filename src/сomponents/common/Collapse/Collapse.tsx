@@ -1,31 +1,31 @@
 import React, { useState } from 'react';
+import "./Collapse.scss";
+
+import { UpOutlined, DownOutlined } from '@ant-design/icons';
 
 type CollapseItemProps = {
-    style: {
-        item: string;
-        itemTitle: string;
-        itemBody: string;
-        itemIcon: string;
-        itemActive: string;
-    }
+    className: string;
     title: string;
-
+    titleStyle?: string;
 }
 
 export const CollapseItem: React.FC<CollapseItemProps> = (props) => {
 
     const [isCollapsed, setIsCollapsed] = useState(false);
 
+    const toggleCollapse = () => {
+        setIsCollapsed(current => !current);
+    }
+
     return (
-        <div className={props.style.item}>
-            <div onClick={() => setIsCollapsed(current => !current)}
-                className={props.style.itemTitle}>
+        <div className={`${props.className} collapse`}>
+            <div className={props.titleStyle ? props.titleStyle : "collapse__title"} onClick={toggleCollapse}>
                 {props.title}
-                <span className={isCollapsed ? props.style.itemActive : props.style.itemIcon}></span>
+                {isCollapsed ? <UpOutlined /> : <DownOutlined />}
             </div>
 
             {isCollapsed &&
-                <div className={props.style.itemBody}>
+                <div className="collapse__children">
                     {props.children}
                 </div>
             }

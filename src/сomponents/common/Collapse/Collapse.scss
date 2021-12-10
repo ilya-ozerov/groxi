@@ -1,0 +1,19 @@
+.collapse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+        font-family: "Jost", sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        color: #252932;
+
+        display: flex;
+        gap: 20px;
+        text-align: center;
+    }
+    &__children {
+        padding-top: 24px;
+    }
+}
