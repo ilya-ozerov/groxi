@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+import React, { CSSProperties, useEffect, useLayoutEffect, useState } from 'react';
 import './ShopSidebar.scss';
 
 import { Rate, Slider } from 'antd';
@@ -8,6 +8,7 @@ import { selectCurrentFilter, selectTrending } from '../../../../../redux/produc
 import { useDispatch, useSelector } from 'react-redux';
 import { getTrendingProductsThunkCreator, productsActions } from '../../../../../redux/productsReducer';
 import { SidebarCategories } from './SidebarCategories/SidebarCategories';
+import { CollapseItem } from '../../../../common/Collapse/Collapse';
 
 const SidebarPriceFilter: React.FC<SidebarPriceFilterProps> = () => {
 
@@ -63,19 +64,35 @@ const SidebarPriceFilter: React.FC<SidebarPriceFilterProps> = () => {
   }
 
   return (
-    <div className="shop-sidebar__filter">
-      <div className="shop-sidebar__title">Filter By Price</div>
-      <div className="shop-sidebar__slider">
-        <Slider handleStyle={[handleStyle1, handleStyle2]}
-          trackStyle={[trackStyle]} range={true} value={priceFilterValues} onChange={(value) => setPriceFilterValues(value)} />
+    <React.Fragment>
+      <div className="shop-sidebar__filter">
+        <div className="shop-sidebar__title">Filter By Price</div>
+        <div className="shop-sidebar__slider">
+          <Slider handleStyle={[handleStyle1, handleStyle2]}
+            trackStyle={[trackStyle]} range={true} value={priceFilterValues} onChange={(value) => setPriceFilterValues(value)} />
+        </div>
+
+        <span className="shop-sidebar__button button">
+          <button onClick={submitPriceFilter}>filter</button>
+        </span>
+
+        <span className="shop-sidebar__price-range">Price ${priceFilterValues[0]}-${priceFilterValues[1]}</span>
       </div>
+      <div className="shop-sidebar__mobile-filter">
+        <CollapseItem className="shop-sidebar__collapse" title="Filter By Price">
+          <div className="shop-sidebar__slider">
+            <Slider handleStyle={[handleStyle1, handleStyle2]}
+              trackStyle={[trackStyle]} range={true} value={priceFilterValues} onChange={(value) => setPriceFilterValues(value)} />
+          </div>
 
-      <span className="shop-sidebar__button button">
-        <button onClick={submitPriceFilter}>filter</button>
-      </span>
+          <span className="shop-sidebar__button button">
+            <button onClick={submitPriceFilter}>filter</button>
+          </span>
 
-      <span className="shop-sidebar__price-range">Price ${priceFilterValues[0]}-${priceFilterValues[1]}</span>
-    </div>
+          <span className="shop-sidebar__price-range">Price ${priceFilterValues[0]}-${priceFilterValues[1]}</span>
+        </CollapseItem>
+      </div>
+    </React.Fragment>
   );
 }
 
@@ -123,9 +140,7 @@ export const ShopSidebar: React.FC<ShopSidebarPropsType> = (props) => {
     <div className="shop-sidebar">
 
       <SearchInput className="shop-sidebar__search" />
-
       <SidebarCategories />
-
       <SidebarPriceFilter />
 
       <div className="shop-sidebar__trending sidebar-trending">
@@ -136,6 +151,17 @@ export const ShopSidebar: React.FC<ShopSidebarPropsType> = (props) => {
         <div className="sidebar-trending__button button">
           <button>view more</button>
         </div>
+      </div>
+
+      <div className="shop-sidebar__mobile-trending sidebar-trending">
+        <CollapseItem title="Trending Items" className="shop-sidebar__collapse">
+          <div className="sidebar-trending__items">
+            {trendingItemsList}
+          </div>
+          <div className="sidebar-trending__button button">
+            <button>view more</button>
+          </div>
+        </CollapseItem>
       </div>
 
     </div>

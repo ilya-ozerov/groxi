@@ -6,6 +6,7 @@ import { TagType } from '../../../../../../types/types';
 import { selectCurrentFilter } from '../../../../../../redux/productsSelectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { productsActions } from '../../../../../../redux/productsReducer';
+import { CollapseItem } from '../../../../../common/Collapse/Collapse';
 
 type SidebarCategoriesProps = {}
 export const SidebarCategories: React.FC<SidebarCategoriesProps> = (props) => {
@@ -34,59 +35,116 @@ export const SidebarCategories: React.FC<SidebarCategoriesProps> = (props) => {
 
   }, [categoriesFilter])
 
+
   return (
-    <div className="shop-sidebar__categories">
-      <div className="shop-sidebar__title">Categories</div>
-      <ul className="shop-sidebar__list">
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" tagName="Beverages"
-            addCategory={addCategory} removeCategory={removeCategory} />
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" tagName="Biscuits, Snacks"
-            addCategory={addCategory} removeCategory={removeCategory} />
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" tagName="Breakfast & Dairy"
-            addCategory={addCategory} removeCategory={removeCategory} />
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" tagName="Fruits & Vegetables"
-            addCategory={addCategory} removeCategory={removeCategory} />
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" tagName="Home Needs"
-            addCategory={addCategory} removeCategory={removeCategory} />
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" tagName="Grocery & Staples"
-            addCategory={addCategory} removeCategory={removeCategory} />
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" tagName="Home & Kitchen"
-            addCategory={addCategory} removeCategory={removeCategory} />
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" tagName="Household Needs"
-            addCategory={addCategory} removeCategory={removeCategory} />
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" tagName="Meats, Frozen"
-            addCategory={addCategory} removeCategory={removeCategory} />
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" tagName="Noodles, Sauces"
-            addCategory={addCategory} removeCategory={removeCategory} />
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" tagName="Personal Care"
-            addCategory={addCategory} removeCategory={removeCategory} />
-        </li>
-        <li>
-          <Checkbox className="shop-sidebar__checkbox" tagName="Pet Care"
-            addCategory={addCategory} removeCategory={removeCategory} />
-        </li>
-      </ul>
-    </div>
+    <React.Fragment>
+      <div className="shop-sidebar__categories">
+        <div className="shop-sidebar__title">Categories</div>
+        <ul className="shop-sidebar__list">
+          <li>
+            <Checkbox className="shop-sidebar__checkbox" tagName="Beverages"
+              addCategory={addCategory} removeCategory={removeCategory} />
+          </li>
+          <li>
+            <Checkbox className="shop-sidebar__checkbox" tagName="Biscuits, Snacks"
+              addCategory={addCategory} removeCategory={removeCategory} />
+          </li>
+          <li>
+            <Checkbox className="shop-sidebar__checkbox" tagName="Breakfast & Dairy"
+              addCategory={addCategory} removeCategory={removeCategory} />
+          </li>
+          <li>
+            <Checkbox className="shop-sidebar__checkbox" tagName="Fruits & Vegetables"
+              addCategory={addCategory} removeCategory={removeCategory} />
+          </li>
+          <li>
+            <Checkbox className="shop-sidebar__checkbox" tagName="Home Needs"
+              addCategory={addCategory} removeCategory={removeCategory} />
+          </li>
+          <li>
+            <Checkbox className="shop-sidebar__checkbox" tagName="Grocery & Staples"
+              addCategory={addCategory} removeCategory={removeCategory} />
+          </li>
+          <li>
+            <Checkbox className="shop-sidebar__checkbox" tagName="Home & Kitchen"
+              addCategory={addCategory} removeCategory={removeCategory} />
+          </li>
+          <li>
+            <Checkbox className="shop-sidebar__checkbox" tagName="Household Needs"
+              addCategory={addCategory} removeCategory={removeCategory} />
+          </li>
+          <li>
+            <Checkbox className="shop-sidebar__checkbox" tagName="Meats, Frozen"
+              addCategory={addCategory} removeCategory={removeCategory} />
+          </li>
+          <li>
+            <Checkbox className="shop-sidebar__checkbox" tagName="Noodles, Sauces"
+              addCategory={addCategory} removeCategory={removeCategory} />
+          </li>
+          <li>
+            <Checkbox className="shop-sidebar__checkbox" tagName="Personal Care"
+              addCategory={addCategory} removeCategory={removeCategory} />
+          </li>
+          <li>
+            <Checkbox className="shop-sidebar__checkbox" tagName="Pet Care"
+              addCategory={addCategory} removeCategory={removeCategory} />
+          </li>
+        </ul>
+      </div>
+      <div className="shop-sidebar__mobile-categories">
+        <CollapseItem className="shop-sidebar__collapse" title="Categories">
+          <ul className="shop-sidebar__list">
+            <li>
+              <Checkbox className="shop-sidebar__checkbox" tagName="Beverages"
+                addCategory={addCategory} removeCategory={removeCategory} />
+            </li>
+            <li>
+              <Checkbox className="shop-sidebar__checkbox" tagName="Biscuits, Snacks"
+                addCategory={addCategory} removeCategory={removeCategory} />
+            </li>
+            <li>
+              <Checkbox className="shop-sidebar__checkbox" tagName="Breakfast & Dairy"
+                addCategory={addCategory} removeCategory={removeCategory} />
+            </li>
+            <li>
+              <Checkbox className="shop-sidebar__checkbox" tagName="Fruits & Vegetables"
+                addCategory={addCategory} removeCategory={removeCategory} />
+            </li>
+            <li>
+              <Checkbox className="shop-sidebar__checkbox" tagName="Home Needs"
+                addCategory={addCategory} removeCategory={removeCategory} />
+            </li>
+            <li>
+              <Checkbox className="shop-sidebar__checkbox" tagName="Grocery & Staples"
+                addCategory={addCategory} removeCategory={removeCategory} />
+            </li>
+            <li>
+              <Checkbox className="shop-sidebar__checkbox" tagName="Home & Kitchen"
+                addCategory={addCategory} removeCategory={removeCategory} />
+            </li>
+            <li>
+              <Checkbox className="shop-sidebar__checkbox" tagName="Household Needs"
+                addCategory={addCategory} removeCategory={removeCategory} />
+            </li>
+            <li>
+              <Checkbox className="shop-sidebar__checkbox" tagName="Meats, Frozen"
+                addCategory={addCategory} removeCategory={removeCategory} />
+            </li>
+            <li>
+              <Checkbox className="shop-sidebar__checkbox" tagName="Noodles, Sauces"
+                addCategory={addCategory} removeCategory={removeCategory} />
+            </li>
+            <li>
+              <Checkbox className="shop-sidebar__checkbox" tagName="Personal Care"
+                addCategory={addCategory} removeCategory={removeCategory} />
+            </li>
+            <li>
+              <Checkbox className="shop-sidebar__checkbox" tagName="Pet Care"
+                addCategory={addCategory} removeCategory={removeCategory} />
+            </li>
+          </ul>
+        </CollapseItem>
+      </div>
+    </React.Fragment>
   );
 }

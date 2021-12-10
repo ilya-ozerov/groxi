@@ -17,6 +17,18 @@
         padding: 30px 0px 30px 30px;
         border: 1px solid #deecf0;
         margin-bottom: 30px;
+        @media (max-width: 830px) {
+            display: none;
+        }
+    }
+    &__mobile-categories {
+        display: none;
+        @media (max-width: 830px) {
+            display: block;
+            padding: 30px 0px 30px 30px;
+            border: 1px solid #deecf0;
+            margin-bottom: 30px;
+        }
     }
     &__list {
         li {
@@ -40,6 +52,29 @@
         padding: 30px;
         border: 1px solid #deecf0;
         margin-bottom: 30px;
+        @media (max-width: 830px) {
+            display: none;
+        }
+    }
+    &__mobile-filter {
+        display: none;
+        @media (max-width: 830px) {
+            display: block;
+            padding: 30px;
+            border: 1px solid #deecf0;
+            margin-bottom: 30px;
+        }
+    }
+    &__trending {
+        @media (max-width: 830px) {
+            display: none;
+        }
+    }
+    &__mobile-trending {
+        display: none;
+        @media (max-width: 830px) {
+            display: block;
+        }
     }
     &__slider {
         .ant-slider-rail {
