@@ -20,7 +20,6 @@ export const ModileMenu: React.FC<MobileMenuPropsType> = ({ className }) => {
 
       <div onClick={() => setIsModile(current => !current)}
         className={isMobile ? "mobile-menu__burger mobile-menu__active" : "mobile-menu__burger"}>
-        {/* <MenuOutlined /> */}
         <div />
       </div>
 
