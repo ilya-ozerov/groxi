@@ -34,6 +34,7 @@ export const ShopSectionSort: React.FC<ShopSectionSortPropsType> = (props) => {
   // shop filter sync
   useEffect(() => {
     dispatch(productsActions.currentFilterChanged({
+      query: currentFilter.query,
       price: currentFilter.price,
       sorting: sortOption,
       tags: currentFilter.tags,

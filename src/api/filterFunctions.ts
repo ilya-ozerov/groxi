@@ -1,6 +1,12 @@
 import { ProductType, SortingType, TagType } from "../types/types";
 import { intersection, isEqual } from "underscore";
 
+export const filterByQuery = (array: ProductType[], searchTerm: string): ProductType[] => {
+    if (array.length < 0) return array;
+
+    return array.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
+}
+
 export const filterBetweenPrices = (array: ProductType[], topPrice: number, bottomPrice: number): ProductType[] => {
     if (array.length < 0) return array;
 

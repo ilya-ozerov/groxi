@@ -36,7 +36,7 @@ import eggs1 from '../assets/images/detailPage/products/eggs/eggs1.png';
 import cookingOil1 from '../assets/images/detailPage/products/cookingOil/cookingOil1.png';
 
 import bodyLotion1 from '../assets/images/detailPage/products/bodyLotion/bodyLotion1.png';
-import { filterBetweenPrices, filterByTags, sortingProducts } from './filterFunctions';
+import { filterBetweenPrices, filterByQuery, filterByTags, sortingProducts } from './filterFunctions';
 
 const productsDetail: ProductDetailType[] = [
     {
@@ -502,6 +502,10 @@ export const productsAPI = {
                 products.push(temp);
             }
         })
+
+        if (filter.query.length > 0) {
+            products = filterByQuery(products, filter.query);
+        }
 
         if (filter.price) {
             products = filterBetweenPrices(products, filter.price.top, filter.price.bottom);

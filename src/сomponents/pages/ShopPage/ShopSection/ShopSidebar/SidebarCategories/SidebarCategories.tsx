@@ -28,6 +28,7 @@ export const SidebarCategories: React.FC<SidebarCategoriesProps> = (props) => {
   // shop filter sync
   useEffect(() => {
     dispatch(productsActions.currentFilterChanged({
+      query: currentFilter.query,
       price: currentFilter.price,
       sorting: currentFilter.sorting,
       tags: categoriesFilter,

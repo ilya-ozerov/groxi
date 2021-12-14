@@ -10,6 +10,7 @@ export type TagType = "Food" | "Fruits" | "Health" | "Meat" | "Dairy" | "Beverag
 
 export type SortingType = "default" | "rate" | "price:LowToHigh" | "price:HighToLow";
 export type FilterType = {
+    query: string;
     price: {
         top: number;
         bottom: number;

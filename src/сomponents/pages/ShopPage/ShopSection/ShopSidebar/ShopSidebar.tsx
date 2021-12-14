@@ -1,7 +1,7 @@
-import React, { CSSProperties, useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ShopSidebar.scss';
 
-import { Rate, Slider } from 'antd';
+import { Rate } from 'antd';
 import { SearchInput } from '../../../../common/SearchInput/SearchInput';
 import { ProductType } from '../../../../../types/types';
 import { selectCurrentFilter, selectTrending } from '../../../../../redux/productsSelectors';
@@ -9,92 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTrendingProductsThunkCreator, productsActions } from '../../../../../redux/productsReducer';
 import { SidebarCategories } from './SidebarCategories/SidebarCategories';
 import { CollapseItem } from '../../../../common/Collapse/Collapse';
-
-const SidebarPriceFilter: React.FC<SidebarPriceFilterProps> = () => {
-
-  const [priceFilterValues, setPriceFilterValues] = useState<[number, number]>([0, 0]);
-  const dispatch = useDispatch();
-  const currentFilter = useSelector(selectCurrentFilter);
-
-  // update shop filter
-  const submitPriceFilter = () => {
-    dispatch(productsActions.currentFilterChanged({
-      price: {
-        bottom: priceFilterValues[0],
-        top: priceFilterValues[1],
-      },
-      sorting: currentFilter.sorting,
-      tags: currentFilter.tags,
-    }))
-  }
-
-  // styles for antd's slider
-  const handleStyle1: CSSProperties = {
-    borderRadius: 0,
-    width: "12px",
-    height: "12px",
-    borderColor: '#9FCB22',
-    backgroundColor: '#9FCB22',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    margin: "auto",
-  }
-  const handleStyle2: CSSProperties = {
-    borderRadius: 0,
-    width: "12px",
-    height: "12px",
-    borderColor: '#9FCB22',
-    backgroundColor: '#9FCB22',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    margin: "auto",
-  }
-  const trackStyle: CSSProperties = {
-    height: '8px',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    margin: "auto",
-    backgroundColor: "#F6FAFB",
-  }
-
-  return (
-    <React.Fragment>
-      <div className="shop-sidebar__filter">
-        <div className="shop-sidebar__title">Filter By Price</div>
-        <div className="shop-sidebar__slider">
-          <Slider handleStyle={[handleStyle1, handleStyle2]}
-            trackStyle={[trackStyle]} range={true} value={priceFilterValues} onChange={(value) => setPriceFilterValues(value)} />
-        </div>
-
-        <span className="shop-sidebar__button button">
-          <button onClick={submitPriceFilter}>filter</button>
-        </span>
-
-        <span className="shop-sidebar__price-range">Price ${priceFilterValues[0]}-${priceFilterValues[1]}</span>
-      </div>
-      <div className="shop-sidebar__mobile-filter">
-        <CollapseItem className="shop-sidebar__collapse" title="Filter By Price">
-          <div className="shop-sidebar__slider">
-            <Slider handleStyle={[handleStyle1, handleStyle2]}
-              trackStyle={[trackStyle]} range={true} value={priceFilterValues} onChange={(value) => setPriceFilterValues(value)} />
-          </div>
-
-          <span className="shop-sidebar__button button">
-            <button onClick={submitPriceFilter}>filter</button>
-          </span>
-
-          <span className="shop-sidebar__price-range">Price ${priceFilterValues[0]}-${priceFilterValues[1]}</span>
-        </CollapseItem>
-      </div>
-    </React.Fragment>
-  );
-}
+import { PriceFilter } from './PriceFilter/PriceFilter';
 
 const SidebarTrendingItem: React.FC<SidebarTrendingItemProps> = ({ product }) => {
   return (
@@ -131,17 +46,31 @@ export const ShopSidebar: React.FC<ShopSidebarPropsType> = (props) => {
   }, [])
 
   const trendingProducts = useSelector(selectTrending);
+  const filter = useSelector(selectCurrentFilter);
 
   const trendingItemsList = trendingProducts.map(p => {
     return <SidebarTrendingItem key={p.id} product={p} />
   })
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+
+  useEffect(() => {
+    dispatch(productsActions.currentFilterChanged({
+      price: filter.price,
+      query: searchTerm,
+      sorting: filter.sorting,
+      tags: filter.tags,
+    }))
+  }, [searchTerm])
+
   return (
     <div className="shop-sidebar">
 
-      <SearchInput className="shop-sidebar__search" />
+      <SearchInput value={searchTerm} onChange={(ev) => setSearchTerm(ev.currentTarget.value)}
+        className="shop-sidebar__search" />
       <SidebarCategories />
-      <SidebarPriceFilter />
+      <PriceFilter />
 
       <div className="shop-sidebar__trending sidebar-trending">
         <div className="shop-sidebar__title">Trending Items</div>
@@ -168,7 +97,7 @@ export const ShopSidebar: React.FC<ShopSidebarPropsType> = (props) => {
   );
 }
 
-type SidebarPriceFilterProps = {}
+
 type SidebarTrendingItemProps = {
   product: ProductType;
 }

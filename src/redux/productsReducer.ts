@@ -33,6 +33,7 @@ let initialState = {
     currentPage: 1,
 
     currentFilter: {
+        query: '',
         price: null,
         sorting: "default",
         tags: [],
@@ -172,7 +173,6 @@ export const getProductsThunkCreator = (startIndex: number, endIndex: number, fi
 
         const payload = productsAPI.getProducts(startIndex, endIndex, filter);
         dispatch(productsActions.productsChanged(payload.products));
-
         dispatch(productsActions.totalProductsCountChanged(payload.totalItems));
 
         dispatch(productsActions.isFetchingProductsSwitched(false));
