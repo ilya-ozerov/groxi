@@ -1,11 +1,10 @@
 import React from 'react';
-import './Paginator.scss';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentPage } from '../../../redux/productsSelectors';
-import { productsActions } from '../../../redux/productsReducer';
+import { selectCurrentPage } from '../../../../../../redux/productsSelectors';
+import { productsActions } from '../../../../../../redux/productsReducer';
 
-export const PaginatorItem: React.FC<PaginatorItemPropsType> = (props) => {
+export const ShopPaginatorItem: React.FC<ShopPaginatorItemPropsType> = (props) => {
 
   const currentPage = useSelector(selectCurrentPage);
   const dispatch = useDispatch();
@@ -19,7 +18,7 @@ export const PaginatorItem: React.FC<PaginatorItemPropsType> = (props) => {
   );
 }
 
-type PaginatorItemPropsType = {
+type ShopPaginatorItemPropsType = {
   activeClassName: string;
   page: number;
 }
