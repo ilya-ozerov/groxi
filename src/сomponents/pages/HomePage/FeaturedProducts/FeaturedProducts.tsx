@@ -6,6 +6,7 @@ import { ProductItem } from '../../../common/ProductItem/ProductItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentFilter, selectProducts } from '../../../../redux/productsSelectors';
 import { getProductsThunkCreator } from '../../../../redux/productsReducer';
+import { FeaturedMenu } from './FeaturedMenu/FeaturedMenu';
 
 export const FeaturedProducts: React.FC<FeaturedProductsProps> = (props) => {
 
@@ -16,7 +17,7 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = (props) => {
   useEffect(() => {
     console.log('Home Page request products');
     dispatch(getProductsThunkCreator(0, 6, filter));
-  }, [])
+  }, [filter])
 
   const products = useSelector(selectProducts);
 
@@ -34,16 +35,7 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = (props) => {
         <div className="featured-products__body">
           <div className="featured-products__title title">Best Seller</div>
           <div className="featured-products__subtitle subtitle">Featured Products</div>
-          <div className="featured-products__menu">
-            <ul className="featured-products__list">
-              <li>All</li>
-              <li>Food</li>
-              <li>Fruits</li>
-              <li>Health</li>
-              <li>Meat</li>
-              <li>Dairy</li>
-            </ul>
-          </div>
+          <FeaturedMenu />
           <div className="featured-products__products">
             {productsList}
           </div>
