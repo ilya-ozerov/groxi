@@ -118,6 +118,14 @@
         }
     }
 
+    &__line-products {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
     &__item {
         background-color: #f6fafb;
     }
@@ -128,4 +136,12 @@
             justify-self: center;
         }
     }
+}
+
+.active-mode {
+    svg {
+        color: #fff;
+    }
+
+    background-color: #9fcb22;
 }
