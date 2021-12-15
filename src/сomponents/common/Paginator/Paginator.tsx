@@ -1,7 +1,8 @@
 import React from 'react';
 import './Paginator.scss';
 
-import arrow from '../../../assets/images/blogPage/posts/arrow.png';
+import arrowLeft from '../../../assets/images/paginator/arrowLeft.png';
+import arrowRight from '../../../assets/images/paginator/arrowRight.png';
 
 type PaginatorPropsType = {
     className: string;
@@ -17,7 +18,7 @@ export const Paginator: React.FC<PaginatorPropsType> = (props) => {
         <div className={`${props.className} paginator`}>
             {props.currentPage !== 1 &&
                 <div onClick={props.prevOnClick} className="paginator__prev-button">
-                    <img src={arrow} alt="prev button" />
+                    <img src={arrowLeft} alt="prev button" />
                 </div>
             }
 
@@ -26,7 +27,7 @@ export const Paginator: React.FC<PaginatorPropsType> = (props) => {
             </ul>
             {props.currentPage < props.countOfPages &&
                 <div onClick={props.nextOnClick} className="paginator__next-button">
-                    <img src={arrow} alt="next button" />
+                    <img src={arrowRight} alt="next button" />
                 </div>
             }
 
