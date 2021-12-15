@@ -134,6 +134,11 @@
                 font-family: "Barlow", sans-serif;
                 font-weight: 300;
             }
+
+            transition-duration: 0.2s;
+            &:focus {
+                border: 1px solid #9fcc22;
+            }
         }
     }
     &__button {
@@ -148,10 +153,17 @@
         color: #6c6c6c;
         font-family: "Barlow", sans-serif;
         font-weight: 300;
+
+        transition-duration: 0.2s;
+
         &::placeholder {
             color: #6c6c6c;
             font-family: "Barlow", sans-serif;
             font-weight: 300;
+        }
+
+        &:focus {
+            border: 1px solid #9fcc22;
         }
     }
 }

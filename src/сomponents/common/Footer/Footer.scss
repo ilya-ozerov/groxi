@@ -175,6 +175,10 @@
                 color: #6c6c6c;
                 font-size: 18px;
             }
+            transition-duration: 1.2s;
+            &:focus {
+                border: 1px solid #14462e;
+            }
         }
     }
     &__button {
