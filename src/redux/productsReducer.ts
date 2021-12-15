@@ -44,7 +44,7 @@ let initialState = {
     lastProductIndex: 9, // current index of last product on page
 };
 
-const productsReducer = (state = initialState, action: ActionTypes): InitialStateType => {
+const productsReducer = (state = initialState, action: ProductsActionTypes): InitialStateType => {
     switch (action.type) {
         case PRODUCTS_CHANGED:
             return _setProducts(state, action.newProducts);
@@ -189,7 +189,7 @@ export const getTrendingProductsThunkCreator = (amount: number): ThunkType =>
     }
 
 export type InitialStateType = typeof initialState;
-type ActionTypes = InferActionTypes<typeof productsActions>;
-type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionTypes>;
+type ProductsActionTypes = InferActionTypes<typeof productsActions>;
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ProductsActionTypes>;
 
 export default productsReducer;
