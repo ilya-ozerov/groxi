@@ -62,3 +62,16 @@ export type ProductDetailType = {
     description: string[];
     reviews?: ReviewType[];
 }
+
+export type PostType = {
+    id: string;
+    image: ImageType;
+    authorName: string;
+    title: string;
+    text: string;
+    date: Date;
+}
+
+export type PostFilterType = {
+    query: string;
+}
