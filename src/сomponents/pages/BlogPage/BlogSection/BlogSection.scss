@@ -22,6 +22,7 @@
         display: grid;
         gap: 30px;
         grid-template-columns: repeat(2, minmax(320px, 1fr));
+
         grid-auto-rows: 1fr;
 
         margin-bottom: 30px;
@@ -33,75 +34,6 @@
     &__item {
     }
     &__paginator {
-    }
-}
-
-.post {
-    background-color: #f6fafb;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-
-    &__image {
-        position: relative;
-        padding: 0px 0px 60% 0px;
-
-        img {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-    &__info {
-        padding: 30px;
-    }
-
-    &__subtitle {
-        font-family: "Barlow", sans-serif;
-        font-weight: 300;
-        font-size: 16px;
-        color: #6c6c6c;
-        display: flex;
-        margin-bottom: 18px;
-    }
-    &__author {
-        margin-right: 5px;
-        span {
-            color: #9fcb22;
-        }
-        &::after {
-            content: "/";
-            padding-left: 5px;
-        }
-    }
-    &__date {
-    }
-    &__title {
-        font-family: "Jost", sans-serif;
-        font-weight: 600;
-        margin-bottom: 18px;
-        font-size: 24px;
-        color: #252932;
-        line-height: 150%;
-    }
-    &__text {
-        font-size: 20px;
-        line-height: 150%;
-        color: #6c6c6c;
-        font-family: "Barlow", sans-serif;
-        font-weight: 300;
-        margin-bottom: 22px;
-    }
-    &__button {
-        button {
-            background-color: #14462e;
-            &:hover {
-                background-color: #9fcb22;
-            }
-        }
     }
 }
 
