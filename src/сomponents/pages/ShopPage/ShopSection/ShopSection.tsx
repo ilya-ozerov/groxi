@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { AppstoreFilled, BarsOutlined } from '@ant-design/icons';
 import './ShopSection.scss';
-import { ShopPaginator } from './ShopPaginator/ShopPaginator';
 import { ProductItem } from '../../../common/ProductItem/ProductItem';
 import { ShopSidebar } from './ShopSidebar/ShopSidebar';
 import { getProductsThunkCreator, productsActions } from '../../../../redux/productsReducer';
-import { selectCurrentFilter, selectFirstProductIndex, selectLastProductIndex, selectProducts, selectTotalProductsCount } from '../../../../redux/productsSelectors';
+import { selectCurrentFilter, selectCurrentPage, selectFirstProductIndex, selectLastProductIndex, selectPageSize, selectProducts, selectTotalProductsCount } from '../../../../redux/productsSelectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { ShopSectionSort } from './ShopSectionSort';
 
 import { ProductLineItem } from '../../../common/ProductLineItem/ProductLineItem';
+import { PaginatorContainer } from '../../../common/Paginator/PaginatorContainer';
 
 
 export const ShopSection: React.FC<ShopSectionPropsType> = (props) => {
@@ -19,6 +19,20 @@ export const ShopSection: React.FC<ShopSectionPropsType> = (props) => {
 
   const firstProductIndex = useSelector(selectFirstProductIndex);
   const lastProductIndex = useSelector(selectLastProductIndex);
+  const totalProducts = useSelector(selectTotalProductsCount);
+  const pageSize = useSelector(selectPageSize);
+  const currentPage = useSelector(selectCurrentPage);
+
+  // functions for Paginator
+  const updateCurrentPage = (pageNumber: number) => {
+    dispatch(productsActions.currentPageChanged(pageNumber));
+  }
+  const updateFirstItemIndex = (index: number) => {
+    dispatch(productsActions.firstProductIndexChanged(index));
+  }
+  const updateLastItemIndex = (index: number) => {
+    dispatch(productsActions.lastProductIndexChanged(index));
+  }
 
   // Updating a product array when updating currentFilter or firstProductIndex or lastProductIndex;
   useEffect(() => {
@@ -113,7 +127,20 @@ export const ShopSection: React.FC<ShopSectionPropsType> = (props) => {
                 {lineProductList}
               </div>
             }
-            <ShopPaginator className="shop-section__paginator" />
+            {/* <ShopPaginator className="shop-section__paginator" /> */}
+
+            <PaginatorContainer
+              className="shop-section__paginator"
+              currentPage={currentPage}
+              firstItemIndex={firstProductIndex}
+              lastItemIndex={lastProductIndex}
+              pageSize={pageSize}
+              totalItems={totalProducts}
+              updateCurrentPage={updateCurrentPage}
+              updateFirstItemIndex={updateFirstItemIndex}
+              updateLastItemIndex={updateLastItemIndex}
+            />
+
           </div>
         </div>
       </div>

@@ -1,17 +1,74 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './BlogSection.scss';
-
-import postImage1 from '../../../../assets/images/blogPage/posts/postImage1.png';
-import postImage2 from '../../../../assets/images/blogPage/posts/postImage2.png';
-import postImage3 from '../../../../assets/images/blogPage/posts/postImage3.png';
-import postImage4 from '../../../../assets/images/blogPage/posts/postImage4.png';
-import postImage5 from '../../../../assets/images/blogPage/posts/postImage5.png';
-import postImage6 from '../../../../assets/images/blogPage/posts/postImage6.png';
-
-import { Paginator } from '../../../common/Paginator/Paginator';
 import { SearchInput } from '../../../common/SearchInput/SearchInput';
+import { Post } from './Post/Post';
+import { PostType } from '../../../../types/types';
+import { monthNames } from '../BlogPage';
+import { useDispatch, useSelector } from 'react-redux';
+import { blogActions, getPostsThunkCreator, getRecentThunkCreator } from '../../../../redux/blogReducer';
+import {
+  selectBlogCurrentPage, selectBlogFilter, selectBlogPageSize,
+  selectFirstPostIndex, selectLastPostIndex, selectPosts,
+  selectRecent, selectTotalPostsCount
+} from '../../../../redux/blogSelectors';
+import { PaginatorContainer } from '../../../common/Paginator/PaginatorContainer';
 
 export const BlogSection: React.FC<BlogSectionPropsType> = (props) => {
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const dispatch = useDispatch();
+
+  const firstPostIndex = useSelector(selectFirstPostIndex);
+  const lastPostIndex = useSelector(selectLastPostIndex);
+
+  const currentPage = useSelector(selectBlogCurrentPage);
+  const pageSize = useSelector(selectBlogPageSize);
+  const totalPosts = useSelector(selectTotalPostsCount);
+
+  // functions for Paginator
+  const updateCurrentPage = (pageNumber: number) => {
+    dispatch(blogActions.currentPageChanged(pageNumber));
+  }
+  const updateFirstPostIndex = (index: number) => {
+    dispatch(blogActions.firstPostIndexChanged(index));
+  }
+  const updateLastPostIndex = (index: number) => {
+    dispatch(blogActions.lastPostIndexChanged(index));
+  }
+
+  const filter = useSelector(selectBlogFilter);
+
+  useEffect(() => {
+    dispatch(getPostsThunkCreator(firstPostIndex, lastPostIndex, filter));
+  }, [firstPostIndex, lastPostIndex, filter]);
+
+  useEffect(() => {
+    dispatch(blogActions.currentPageChanged(1));
+  }, [filter]);
+
+  useEffect(() => {
+    dispatch(blogActions.currentFilterChanged({
+      query: searchTerm,
+    }));
+  }, [searchTerm]);
+
+  const posts = useSelector(selectPosts);
+
+  const postsList = posts.map(p => {
+    return <Post key={p.id} post={p} className="blog-section__item" />
+  });
+
+  useEffect(() => {
+    dispatch(getRecentThunkCreator(5));
+  }, []);
+
+  const recent = useSelector(selectRecent)
+
+  const recentPostsList = recent.map(p => {
+    return <RecentPost key={p.id} post={p} />
+  });
+
   return (
     <section className="blog-section">
       <div className="container">
@@ -19,259 +76,29 @@ export const BlogSection: React.FC<BlogSectionPropsType> = (props) => {
         <div className="blog-section__body">
           <div className="blog-section__posts">
             <div className="blog-section__items">
-              <div className="blog-section__item post">
-                <div className="post__image">
-                  <img src={postImage1} alt="post preview" />
-                </div>
-                <div className="post__info">
-                  <div className="post__subtitle">
-                    <div className="post__author">
-                      By <span>admin</span>
-                    </div>
-                    <div className="post__date">Date April 24, 2020</div>
-                  </div>
-
-                  <div className="post__title">
-                    Quia voluptas sit asernatur aut  renit aut fugit
-                  </div>
-                  <div className="post__text">
-                    Neque porro quisquam est aui dolorem
-                    sit amet, consectetur, adipisci velit, se
-                    eius modi tempora incidunt.
-                  </div>
-                  <div className="post__button button">
-                    <button>read more</button>
-                  </div>
-
-                </div>
-              </div>
-
-              <div className="blog-section__item post">
-                <div className="post__image">
-                  <img src={postImage2} alt="post preview" />
-                </div>
-                <div className="post__info">
-                  <div className="post__subtitle">
-                    <div className="post__author">
-                      By <span>admin</span>
-                    </div>
-                    <div className="post__date">Date April 24, 2020</div>
-                  </div>
-
-                  <div className="post__title">
-                    Quia voluptas sit asernatur aut  renit aut fugit
-                  </div>
-                  <div className="post__text">
-                    Neque porro quisquam est aui dolorem
-                    sit amet, consectetur, adipisci velit, se
-                    eius modi tempora incidunt.
-                  </div>
-                  <div className="post__button button">
-                    <button>read more</button>
-                  </div>
-
-                </div>
-              </div>
-
-              <div className="blog-section__item post">
-                <div className="post__image">
-                  <img src={postImage3} alt="post preview" />
-                </div>
-                <div className="post__info">
-                  <div className="post__subtitle">
-                    <div className="post__author">
-                      By <span>admin</span>
-                    </div>
-                    <div className="post__date">Date April 24, 2020</div>
-                  </div>
-
-                  <div className="post__title">
-                    Quia voluptas sit asernatur aut  renit aut fugit
-                  </div>
-                  <div className="post__text">
-                    Neque porro quisquam est aui dolorem
-                    sit amet, consectetur, adipisci velit, se
-                    eius modi tempora incidunt.
-                  </div>
-                  <div className="post__button button">
-                    <button>read more</button>
-                  </div>
-
-                </div>
-              </div>
-
-              <div className="blog-section__item post">
-                <div className="post__image">
-                  <img src={postImage4} alt="post preview" />
-                </div>
-                <div className="post__info">
-                  <div className="post__subtitle">
-                    <div className="post__author">
-                      By <span>admin</span>
-                    </div>
-                    <div className="post__date">Date April 24, 2020</div>
-                  </div>
-
-                  <div className="post__title">
-                    Quia voluptas sit asernatur aut  renit aut fugit
-                  </div>
-                  <div className="post__text">
-                    Neque porro quisquam est aui dolorem
-                    sit amet, consectetur, adipisci velit, se
-                    eius modi tempora incidunt.
-                  </div>
-                  <div className="post__button button">
-                    <button>read more</button>
-                  </div>
-
-                </div>
-              </div>
-
-              <div className="blog-section__item post">
-                <div className="post__image">
-                  <img src={postImage5} alt="post preview" />
-                </div>
-                <div className="post__info">
-                  <div className="post__subtitle">
-                    <div className="post__author">
-                      By <span>admin</span>
-                    </div>
-                    <div className="post__date">Date April 24, 2020</div>
-                  </div>
-
-                  <div className="post__title">
-                    Quia voluptas sit asernatur aut  renit aut fugit
-                  </div>
-                  <div className="post__text">
-                    Neque porro quisquam est aui dolorem
-                    sit amet, consectetur, adipisci velit, se
-                    eius modi tempora incidunt.
-                  </div>
-                  <div className="post__button button">
-                    <button>read more</button>
-                  </div>
-
-                </div>
-              </div>
-
-              <div className="blog-section__item post">
-                <div className="post__image">
-                  <img src={postImage6} alt="post preview" />
-                </div>
-                <div className="post__info">
-                  <div className="post__subtitle">
-                    <div className="post__author">
-                      By <span>admin</span>
-                    </div>
-                    <div className="post__date">Date April 24, 2020</div>
-                  </div>
-
-                  <div className="post__title">
-                    Quia voluptas sit asernatur aut  renit aut fugit
-                  </div>
-                  <div className="post__text">
-                    Neque porro quisquam est aui dolorem
-                    sit amet, consectetur, adipisci velit, se
-                    eius modi tempora incidunt.
-                  </div>
-                  <div className="post__button button">
-                    <button>read more</button>
-                  </div>
-
-                </div>
-              </div>
-
+              {postsList}
             </div>
-            <Paginator className="blog-section__paginator" />
+            <PaginatorContainer
+              className="blog-section__paginator"
+              currentPage={currentPage}
+              firstItemIndex={firstPostIndex}
+              lastItemIndex={lastPostIndex}
+              pageSize={pageSize}
+              totalItems={totalPosts}
+              updateCurrentPage={updateCurrentPage}
+              updateFirstItemIndex={updateFirstPostIndex}
+              updateLastItemIndex={updateLastPostIndex}
+            />
           </div>
 
           <div className="blog-section__sidebar blog-sidebar">
 
-            <SearchInput className="blog-sidebar__search" />
+            <SearchInput value={searchTerm} onChange={(ev) => { setSearchTerm(ev.currentTarget.value) }} className="blog-sidebar__search" />
 
             <div className="blog-sidebar__recent">
               <div className="blog-sidebar__title">Recent Posts</div>
               <div className="blog-sidebar__items">
-                <div className="blog-sidebar__item">
-                  <div className="blog-sidebar__image">
-                    <img src={postImage1} alt="post preview" />
-                  </div>
-                  <div className="blog-sidebar__info">
-                    <div className="blog-sidebar__text">
-                      Beatae vitae rica
-                      sunt exlicabo
-                    </div>
-                    <div className="blog-sidebar__date">
-                      April 24, 2020
-                    </div>
-
-                  </div>
-
-                </div>
-                <div className="blog-sidebar__item">
-                  <div className="blog-sidebar__image">
-                    <img src={postImage2} alt="post preview" />
-                  </div>
-                  <div className="blog-sidebar__info">
-                    <div className="blog-sidebar__text">
-                      Beatae vitae rica
-                      sunt exlicabo
-                    </div>
-                    <div className="blog-sidebar__date">
-                      April 24, 2020
-                    </div>
-
-                  </div>
-
-                </div>
-                <div className="blog-sidebar__item">
-                  <div className="blog-sidebar__image">
-                    <img src={postImage3} alt="post preview" />
-                  </div>
-                  <div className="blog-sidebar__info">
-                    <div className="blog-sidebar__text">
-                      Beatae vitae rica
-                      sunt exlicabo
-                    </div>
-                    <div className="blog-sidebar__date">
-                      April 24, 2020
-                    </div>
-
-                  </div>
-
-                </div>
-                <div className="blog-sidebar__item">
-                  <div className="blog-sidebar__image">
-                    <img src={postImage4} alt="post preview" />
-                  </div>
-                  <div className="blog-sidebar__info">
-                    <div className="blog-sidebar__text">
-                      Beatae vitae rica
-                      sunt exlicabo
-                    </div>
-                    <div className="blog-sidebar__date">
-                      April 24, 2020
-                    </div>
-
-                  </div>
-
-                </div>
-                <div className="blog-sidebar__item">
-                  <div className="blog-sidebar__image">
-                    <img src={postImage5} alt="post preview" />
-                  </div>
-                  <div className="blog-sidebar__info">
-                    <div className="blog-sidebar__text">
-                      Beatae vitae rica
-                      sunt exlicabo
-                    </div>
-                    <div className="blog-sidebar__date">
-                      April 24, 2020
-                    </div>
-
-                  </div>
-
-                </div>
+                {recentPostsList}
               </div>
               <div className="blog-sidebar__button button">
                 <button>view more</button>
@@ -308,4 +135,29 @@ export const BlogSection: React.FC<BlogSectionPropsType> = (props) => {
 
 type BlogSectionPropsType = {
 
+}
+
+type RecentPostPropsType = {
+  post: PostType;
+}
+
+const RecentPost: React.FC<RecentPostPropsType> = ({ post }) => {
+
+  const date = `${monthNames[post.date.getMonth()]} ${post.date.getDate()}, ${post.date.getFullYear()}`;
+
+  return (
+    <div className="blog-sidebar__item">
+      <div className="blog-sidebar__image">
+        <img src={post.image.url} alt={post.image.alt} />
+      </div>
+      <div className="blog-sidebar__info">
+        <div className="blog-sidebar__text">
+          {post.title.length > 30 ? post.title.substring(0, 30) + "..." : post.title}
+        </div>
+        <div className="blog-sidebar__date">
+          {date}
+        </div>
+      </div>
+    </div>
+  );
 }
