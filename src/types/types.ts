@@ -39,9 +39,7 @@ export type ProductType = {
     rate: RateType;
     image: ImageType;
     price: PriceType;
-    favorite: boolean;
     hot: boolean;
-
     tags: TagType[];
 }
 

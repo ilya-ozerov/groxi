@@ -480,7 +480,6 @@ const detailToProduct = (item: ProductDetailType): ProductType | null => {
         rate: item.rate,
         image: item.images[0],
         price: item.price,
-        favorite: item.favorite,
         hot: item.hot,
         tags: [...item.tags],
     };
@@ -528,16 +527,18 @@ export const productsAPI = {
 
     getFavourites: () => {
 
+        const filteredProductsDateail = productsDetail.filter(p => p.favorite);
+
         let products: ProductType[] = [];
 
-        productsDetail.forEach(p => {
+        filteredProductsDateail.forEach(p => {
             let temp = detailToProduct(p);
             if (temp) {
                 products.push(temp);
             }
         })
 
-        return products.filter(p => p.favorite);
+        return products;
     },
 
     toggleFavourite: (productID: string, toggleValue: boolean) => {
