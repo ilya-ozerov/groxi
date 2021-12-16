@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import { HomePage } from './сomponents/pages/HomePage/HomePage';
@@ -11,10 +11,17 @@ import { BlogPage } from './сomponents/pages/BlogPage/BlogPage';
 import { ShopPage } from './сomponents/pages/ShopPage/ShopPage';
 import { ProductDetailPage } from './сomponents/pages/ProductDetailPage/ProductDetailPage';
 import { ScrollToTop } from './hoc/scrollToTop';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import store from './redux/store';
+import { getFavouritesThunkCreator } from './redux/productsReducer';
 
 export const App: React.FC = () => {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getFavouritesThunkCreator())
+  }, []);
+
   return (
     <div className="wrapper">
       <ScrollToTop>

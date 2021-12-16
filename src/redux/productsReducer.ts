@@ -188,6 +188,12 @@ export const getTrendingProductsThunkCreator = (amount: number): ThunkType =>
         dispatch(productsActions.isFetchingTrendingSwitched(false));
     }
 
+export const getFavouritesThunkCreator = (): ThunkType =>
+    async (dispatch) => {
+        const favourites = productsAPI.getFavourites();
+        dispatch(productsActions.favouritesChanged(favourites));
+    }
+
 export const toggleFavouriteThunkCreator = (productID: string, toggleValue: boolean): ThunkType =>
     async (dispatch) => {
         const payload = productsAPI.toggleFavourite(productID, toggleValue);
