@@ -23,6 +23,8 @@
         font-weight: 500;
     }
     &__favorite {
+        cursor: pointer;
+
         position: absolute;
         top: 20px;
         right: 20px;
@@ -37,6 +39,17 @@
             width: 18px;
             height: 16px;
             color: #bdbdbd;
+        }
+
+        transition-duration: 0.2s;
+        &:hover {
+            transform: scale(1.1);
+        }
+        &:focus {
+            transform: scale(1.1);
+        }
+        &:active {
+            transform: scale(0.9);
         }
     }
     &__image {
