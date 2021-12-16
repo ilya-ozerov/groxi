@@ -1,6 +1,6 @@
 import { v1 as createId } from 'uuid';
 
-import { FilterType, ProductDetailType, ProductType, TagType } from './../types/types';
+import { FilterType, ProductDetailType, ProductType } from '../types/types';
 
 import strawberry1 from '../assets/images/detailPage/products/strawberry/strawberry1.png';
 import strawberry2 from '../assets/images/detailPage/products/strawberry/strawberry2.jpg';
@@ -212,7 +212,7 @@ const productsDetail: ProductDetailType[] = [
     },
     {
         name: 'Fresh Milk',
-        tags: ["Health", "Food", "Breakfast & Dairy"],
+        tags: ["Health", "Food", "Breakfast & Dairy", "Dairy"],
         id: "36f95717-52c8-11ec-9b2a-0576109a5fb1",
         rate: 3,
         favorite: false,
@@ -527,7 +527,36 @@ export const productsAPI = {
     },
 
     getFavourites: () => {
-        return productsDetail.filter(p => p.favorite);
+
+        let products: ProductType[] = [];
+
+        productsDetail.forEach(p => {
+            let temp = detailToProduct(p);
+            if (temp) {
+                products.push(temp);
+            }
+        })
+
+        return products.filter(p => p.favorite);
+    },
+
+    toggleFavourite: (productID: string, toggleValue: boolean) => {
+        const index = productsDetail.findIndex(item => item.id === productID);
+
+        const productCopy = { ...productsDetail[index] };
+        productCopy.favorite = toggleValue;
+
+        productsDetail[index] = productCopy;
+
+        const data = {
+            resultCode: 1,
+        };
+
+        if (productsDetail[index].favorite === toggleValue) {
+            data.resultCode = 0;
+        }
+
+        return data;
     },
 
     getDetailProduct: (id: string) => {
