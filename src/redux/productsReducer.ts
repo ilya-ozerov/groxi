@@ -1,7 +1,7 @@
 import { AppStateType, InferActionTypes } from "./store";
 import { ThunkAction } from "redux-thunk";
 import { FilterType, ProductType } from "../types/types";
-import { productsAPI } from "../api/api";
+import { productsAPI } from "../api/productsAPI";
 
 const PRODUCTS_CHANGED = 'groxi/products/PRODUCTS_CHANGED';
 const TRENDING_CHANGED = 'groxi/products/TRENDING_CHANGED';
@@ -186,6 +186,16 @@ export const getTrendingProductsThunkCreator = (amount: number): ThunkType =>
         dispatch(productsActions.trendingChanged(products));
 
         dispatch(productsActions.isFetchingTrendingSwitched(false));
+    }
+
+export const toggleFavouriteThunkCreator = (productID: string, toggleValue: boolean): ThunkType =>
+    async (dispatch) => {
+        const payload = productsAPI.toggleFavourite(productID, toggleValue);
+
+        if (payload.resultCode === 0) {
+            const favourites = productsAPI.getFavourites();
+            dispatch(productsActions.favouritesChanged(favourites));
+        }
     }
 
 export type InitialStateType = typeof initialState;
