@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import './TrendingProducts.scss';
-import { ProductItem } from '../../../common/ProductItem/ProductItem';
-import { productsAPI } from '../../../../api/api';
+import { ProductDefault } from '../../../common/ProductItem/ProductDefault/ProductDefault';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectTrending } from '../../../../redux/productsSelectors';
 import { getTrendingProductsThunkCreator } from '../../../../redux/productsReducer';
@@ -14,12 +13,12 @@ export const TrendingProducts: React.FC<TrendingProductsPropsType> = (props) => 
 
   useEffect(() => {
     dispatch(getTrendingProductsThunkCreator(6));
-  }, [])
+  }, []);
 
   const trendingProducts = useSelector(selectTrending);
 
   const productList = trendingProducts.map(p => {
-    return <ProductItem key={p.id} className='trending__item' product={p} />
+    return <ProductDefault key={p.id} className='trending__item' product={p} />
   });
 
   return (

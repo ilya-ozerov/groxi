@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { AppstoreFilled, BarsOutlined } from '@ant-design/icons';
 import './ShopSection.scss';
-import { ProductItem } from '../../../common/ProductItem/ProductItem';
+import { ProductDefault } from '../../../common/ProductItem/ProductDefault/ProductDefault';
 import { ShopSidebar } from './ShopSidebar/ShopSidebar';
 import { getProductsThunkCreator, productsActions } from '../../../../redux/productsReducer';
 import { selectCurrentFilter, selectCurrentPage, selectFirstProductIndex, selectLastProductIndex, selectPageSize, selectProducts, selectTotalProductsCount } from '../../../../redux/productsSelectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { ShopSectionSort } from './ShopSectionSort';
 
-import { ProductLineItem } from '../../../common/ProductLineItem/ProductLineItem';
+import { ProductLineItem } from '../../../common/ProductItem/ProductLineItem/ProductLineItem';
 import { PaginatorContainer } from '../../../common/Paginator/PaginatorContainer';
 
 
@@ -49,7 +49,7 @@ export const ShopSection: React.FC<ShopSectionPropsType> = (props) => {
   const totalProductsCount = useSelector(selectTotalProductsCount);
 
   const productList = products.map(p => {
-    return <ProductItem key={p.id} className='shop-section__item' product={p} />
+    return <ProductDefault key={p.id} className='shop-section__item' product={p} />
   })
 
   const lineProductList = products.map(p => {
@@ -127,7 +127,6 @@ export const ShopSection: React.FC<ShopSectionPropsType> = (props) => {
                 {lineProductList}
               </div>
             }
-            {/* <ShopPaginator className="shop-section__paginator" /> */}
 
             <PaginatorContainer
               className="shop-section__paginator"
