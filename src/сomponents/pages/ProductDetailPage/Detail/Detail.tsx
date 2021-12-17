@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ProductDetailType } from '../../../../types/types';
 import './Detail.scss';
 
@@ -26,9 +26,33 @@ type DetailPropsType = {
 };
 export const Detail: React.FC<DetailPropsType> = ({ product }) => {
 
-    const images = product?.images.slice(0, 5).map((image, i) => {
+    const [bigImageIndex, setBigImageIndex] = useState(0);
+
+    const nextImage = () => {
+        if (product?.images && product.images.length > 0) {
+            setBigImageIndex(current => {
+                if (current < product.images.length - 1) {
+                    return current + 1;
+                }
+                return 0;
+            })
+        }
+    }
+
+    const prevImage = () => {
+        if (product?.images && product.images.length > 0) {
+            setBigImageIndex(current => {
+                if (current > 0) {
+                    return current - 1;
+                }
+                return product.images.length - 1;
+            })
+        }
+    }
+
+    const images = product?.images.map((image, i) => {
         return (
-            <div key={i} className="detail-gallery__image">
+            <div onClick={() => { setBigImageIndex(i) }} key={i} className={bigImageIndex === i ? "detail-gallery__image detail-gallery__active-image" : "detail-gallery__image"}>
                 <img src={image.url} alt={image.alt} />
             </div>
         );
@@ -39,20 +63,24 @@ export const Detail: React.FC<DetailPropsType> = ({ product }) => {
             <div className="container">
                 <div className="detail__body">
                     <div className="detail__gallery detail-gallery">
-                        <div className="detail-gallery__prev">
+                        <div onClick={prevImage} className="detail-gallery__prev">
                             <img src={arrow} alt="prev button" />
                         </div>
 
                         <div className="detail-gallery__images">
-                            {images}
+                            {images?.slice(bigImageIndex, bigImageIndex + 5)}
                         </div>
 
-                        <div className="detail-gallery__next">
+                        <div className="detail-gallery__mobile-images">
+                            {images?.slice(bigImageIndex, bigImageIndex + 4)}
+                        </div>
+
+                        <div onClick={nextImage} className="detail-gallery__next">
                             <img src={arrow} alt="next button" />
                         </div>
                     </div>
                     <div className="detail__image">
-                        <img src={product?.images[0].url ? product?.images[0].url : '#'} alt={product?.images[0].url} />
+                        <img src={product?.images[bigImageIndex].url ? product?.images[bigImageIndex].url : '#'} alt={product?.images[bigImageIndex].alt} />
                     </div>
                     <div className="detail__information">
                         <div className="detail__title">{product?.name}</div>
