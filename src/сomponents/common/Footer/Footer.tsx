@@ -13,14 +13,6 @@ type FooterPropsType = {}
 
 export const Footer: React.FC<FooterPropsType> = (props) => {
 
-  const CollapseItemStyle = {
-    item: "footer__collapse collapse",
-    itemTitle: "collapse__title footer__title",
-    itemBody: "collapse__body",
-    itemIcon: "collapse__icon",
-    itemActive: "collapse__active",
-  }
-
   return (
     <footer className="footer">
       <div className="container">

@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useState } from 'react';
+import React from 'react';
 import './SearchInput.scss';
 
 import search from '../../../assets/images/blogPage/search.png';
