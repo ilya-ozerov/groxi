@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
-import { ProductDetailType } from '../../../../types/types';
+import { ProductDetailType, ProductType } from '../../../../types/types';
 import './Detail.scss';
 
-import {
-    PlusOutlined,
-    MinusOutlined,
-
-} from '@ant-design/icons';
 
 import arrow from '../../../../assets/images/detailPage/arrow.png';
 
@@ -20,6 +15,8 @@ import medal from '../../../../assets/images/detailPage/banners/medal.png';
 import phone from '../../../../assets/images/detailPage/banners/phone.png';
 
 import { Rate } from 'antd';
+import { CartButton } from '../../../common/CartButton/CartButton';
+import { detailToProduct } from '../../../../api/productsAPI';
 
 type DetailPropsType = {
     product?: ProductDetailType | null;
@@ -27,6 +24,7 @@ type DetailPropsType = {
 export const Detail: React.FC<DetailPropsType> = ({ product }) => {
 
     const [bigImageIndex, setBigImageIndex] = useState(0);
+
 
     const nextImage = () => {
         if (product?.images && product.images.length > 0) {
@@ -99,21 +97,11 @@ export const Detail: React.FC<DetailPropsType> = ({ product }) => {
                         </div>
 
                         <div className="detail__cart">
-
-                            <div className="detail__amount-body">
-                                <div className="detail__minus">
-                                    <MinusOutlined />
-                                </div>
-                                <div className="detail__amount">1</div>
-                                <div className="detail__plus">
-                                    <PlusOutlined />
-                                </div>
-                            </div>
-
-                            <div className="detail__button button">
-                                <button>Add to cart</button>
-                            </div>
-
+                            <CartButton
+                                product={detailToProduct(product as ProductDetailType)}
+                                amountCartStyle="detail__amount"
+                                buttonStyle="detail__button"
+                            />
                         </div>
 
 

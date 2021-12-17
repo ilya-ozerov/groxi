@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavouriteThunkCreator } from '../../../../redux/productsReducer';
 import { selectFavourites } from '../../../../redux/productsSelectors';
+import { CartButton } from '../../CartButton/CartButton';
 
 export const ProductLineItem: React.FC<ProductLineItemProps> = ({ product, className }) => {
 
@@ -51,37 +52,41 @@ export const ProductLineItem: React.FC<ProductLineItemProps> = ({ product, class
         </div>
       }
 
-      <Link to={'/detail/' + product.id}>
+      <div className="line-product-item__body">
 
-        <div className="line-product-item__body">
-
-          <div className="line-product-item__image">
+        <div className="line-product-item__image">
+          <Link to={'/detail/' + product.id}>
             <img src={product.image.url} alt={product.image.alt} />
-          </div>
+          </Link>
+        </div>
 
-          <div className="line-product-item__info">
+        <div className="line-product-item__info">
+          <Link to={'/detail/' + product.id}>
             <div className="line-product-item__name">
               {product.name}
             </div>
-            <div className="line-product-item__rate">
-              <Rate disabled defaultValue={product.rate} />
-            </div>
-            <div className="line-product-item__price">
-              {product.price.oldPrice &&
-                <React.Fragment>
-                  <span>${product.price.oldPrice}</span> ${product.price.currentPrice}
-                </React.Fragment>
-              }
-              {!product.price.oldPrice &&
-                <React.Fragment>${product.price.currentPrice}</React.Fragment>
-              }
-            </div>
-            <div className="line-product-item__button button">
-              <button>Add to cart</button>
-            </div>
+          </Link>
+          <div className="line-product-item__rate">
+            <Rate disabled defaultValue={product.rate} />
           </div>
+          <div className="line-product-item__price">
+            {product.price.oldPrice &&
+              <React.Fragment>
+                <span>${product.price.oldPrice}</span> ${product.price.currentPrice}
+              </React.Fragment>
+            }
+            {!product.price.oldPrice &&
+              <React.Fragment>${product.price.currentPrice}</React.Fragment>
+            }
+          </div>
+
+          <CartButton
+            product={product}
+            amountCartStyle="line-product-item__amount"
+            buttonStyle="line-product-item__button"
+          />
         </div>
-      </Link>
+      </div>
 
     </div>
   );

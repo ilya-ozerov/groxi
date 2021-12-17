@@ -3,14 +3,16 @@ import './ProductDefault.scss';
 import { Rate } from 'antd';
 import { ProductType } from '../../../../types/types';
 import { HeartFilled } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavouriteThunkCreator } from '../../../../redux/productsReducer';
 import { selectFavourites } from '../../../../redux/productsSelectors';
+import { Link } from 'react-router-dom';
+import { CartButton } from '../../CartButton/CartButton';
 
 export const ProductDefault: React.FC<ProductDefaultProps> = ({ className, product }) => {
 
   const dispatch = useDispatch();
+
 
   const addToFavourites = () => {
     dispatch(toggleFavouriteThunkCreator(product.id, true));
@@ -51,37 +53,38 @@ export const ProductDefault: React.FC<ProductDefaultProps> = ({ className, produ
         </div>
       }
 
-      <Link to={'/detail/' + product.id}>
-        <div className="product-item__image">
+      <div className="product-item__image">
+        <Link to={'/detail/' + product.id}>
           <img src={product.image.url} alt={product.image.alt} />
+        </Link>
+      </div>
+      <div className="product-item__info">
+        <div className="product-item__rate">
+          <Rate disabled defaultValue={product.rate} />
         </div>
-        <div className="product-item__info">
-          <div className="product-item__rate">
-            <Rate disabled defaultValue={product.rate} />
-          </div>
+        <Link to={'/detail/' + product.id}>
           <div className="product-item__name">{product.name}</div>
-          <div className="product-item__price">
-            {product.price.oldPrice &&
-              <React.Fragment>
-                <span>${product.price.oldPrice}</span> ${product.price.currentPrice}
-              </React.Fragment>
-            }
-            {!product.price.oldPrice &&
-              <React.Fragment>${product.price.currentPrice}</React.Fragment>
-            }
-          </div>
+        </Link>
+        <div className="product-item__price">
+          {product.price.oldPrice &&
+            <React.Fragment>
+              <span>${product.price.oldPrice}</span> ${product.price.currentPrice}
+            </React.Fragment>
+          }
+          {!product.price.oldPrice &&
+            <React.Fragment>${product.price.currentPrice}</React.Fragment>
+          }
         </div>
-      </Link>
 
-
-      <div className="product-item__button button">
-        <button>Add to cart</button>
+        <CartButton
+          product={product}
+          amountCartStyle="product-item__amount"
+          buttonStyle="product-item__button" />
       </div>
 
     </div>
   );
 }
-
 type ProductDefaultProps = {
   className: string;
   product: ProductType;
