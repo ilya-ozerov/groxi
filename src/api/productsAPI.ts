@@ -469,7 +469,7 @@ const productsDetail: ProductDetailType[] = [
     },
 ]
 
-const detailToProduct = (item: ProductDetailType): ProductType | null => {
+export const detailToProduct = (item: ProductDetailType): ProductType | null => {
 
     if (!item) {
         return null;
