@@ -1,24 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProductLineItem.scss';
 import { Rate } from 'antd';
-import { ProductType } from '../../../types/types';
+import { ProductType } from '../../../../types/types';
 import { HeartFilled } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleFavouriteThunkCreator } from '../../../../redux/productsReducer';
+import { selectFavourites } from '../../../../redux/productsSelectors';
 
 export const ProductLineItem: React.FC<ProductLineItemProps> = ({ product, className }) => {
+
+  const dispatch = useDispatch();
+
+  const addToFavourites = () => {
+    dispatch(toggleFavouriteThunkCreator(product.id, true));
+  };
+
+  const removeToFavourites = () => {
+    dispatch(toggleFavouriteThunkCreator(product.id, false));
+  };
+
+  const [isFavourite, setIsFavourite] = useState(false);
+  const favourites = useSelector(selectFavourites);
+
+  useEffect(() => {
+    let index = favourites.findIndex(el => el.id === product.id);
+
+    if (index === -1) {
+      setIsFavourite(false);
+    } else {
+      setIsFavourite(true);
+    }
+
+  }, [favourites]);
+
   return (
     <div className={`${className} line-product-item`}>
 
       {product.hot && <div className="line-product-item__label">Hot</div>}
 
-      {product.favorite &&
-        <div className="line-product-item__favorite line-product-item__favorite-active">
+      {isFavourite &&
+        <div onClick={removeToFavourites} className="line-product-item__favorite line-product-item__favorite-active">
           <HeartFilled />
         </div>
       }
 
-      {!product.favorite &&
-        <div className="line-product-item__favorite">
+      {!isFavourite &&
+        <div onClick={addToFavourites} className="line-product-item__favorite">
           <HeartFilled />
         </div>
       }

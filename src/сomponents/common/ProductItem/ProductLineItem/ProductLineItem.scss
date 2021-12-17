@@ -29,6 +29,18 @@
         display: grid;
         align-items: center;
         justify-items: center;
+
+        transition-duration: 0.2s;
+        &:hover {
+            transform: scale(1.1);
+        }
+        &:focus {
+            transform: scale(1.1);
+        }
+        &:active {
+            transform: scale(0.9);
+        }
+
         svg {
             width: 18px;
             height: 16px;
