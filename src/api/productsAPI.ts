@@ -145,24 +145,25 @@ const productsDetail: ProductDetailType[] = [
         images: [
             {
                 url: broccoli1,
-                alt: "meat",
+                alt: "broccoli",
             },
             {
                 url: broccoli2,
-                alt: "meat",
+                alt: "broccoli",
             },
             {
                 url: broccoli3,
-                alt: "meat",
+                alt: "broccoli",
             },
             {
                 url: broccoli4,
-                alt: "meat",
+                alt: "broccoli",
             },
             {
                 url: broccoli5,
-                alt: "meat",
+                alt: "broccoli",
             },
+
         ],
         overview: "Neque porro quisquam est aui dolorem iesum ruia do sit amet, consectetur, adipisci velit, sed quia non num eius modi tempora incidunt ut labore et dolore magna volutatem exercitationem ullam.",
         description: [
