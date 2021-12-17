@@ -1,13 +1,24 @@
-import React from 'react';
-import { productsAPI } from '../../../../api/api';
-import { ProductItem } from '../../../common/ProductItem/ProductItem';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTrendingProductsThunkCreator } from '../../../../redux/productsReducer';
+import { selectTrending } from '../../../../redux/productsSelectors';
+import { ProductDefault } from '../../../common/ProductItem/ProductDefault/ProductDefault';
 import './Related.scss';
 
 type RelatedPropsType = {};
 export const Related: React.FC<RelatedPropsType> = (props) => {
 
-    const productsList = productsAPI.getTrendingProducts(0, 4).map(p => {
-        return <ProductItem key={p.id} className="related__product" product={p} />
+    const dispatch = useDispatch();
+
+    // request trending products
+    useEffect(() => {
+        dispatch(getTrendingProductsThunkCreator(4));
+    }, []);
+
+    const products = useSelector(selectTrending);
+
+    const productsList = products.map(p => {
+        return <ProductDefault key={p.id} className="related__product" product={p} />
     })
 
     return (
