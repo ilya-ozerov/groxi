@@ -2,6 +2,7 @@
   "name": "groxi",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ilya-ozerov.github.io/groxi",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -31,7 +32,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +56,7 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "5.3.0",
-    "@types/react-transition-group": "^4.4.4"
+    "@types/react-transition-group": "^4.4.4",
+    "gh-pages": "^3.2.3"
   }
 }

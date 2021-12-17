@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import { HomePage } from './сomponents/pages/HomePage/HomePage';
 import { Page404 } from './сomponents/pages/Page404/Page404';
@@ -45,11 +45,11 @@ export const App: React.FC = () => {
 export const GroxiApp: React.FC = () => {
   return (
     <React.StrictMode>
-      <BrowserRouter>
+      <HashRouter>
         <Provider store={store}>
           <App />
         </Provider>
-      </BrowserRouter>
+      </HashRouter>
     </React.StrictMode>
   );
 }
