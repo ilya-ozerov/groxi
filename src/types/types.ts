@@ -73,3 +73,8 @@ export type PostType = {
 export type PostFilterType = {
     query: string;
 }
+
+export type CartItem = {
+    product: ProductType;
+    amount: number;
+}

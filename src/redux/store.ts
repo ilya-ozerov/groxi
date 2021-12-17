@@ -1,11 +1,13 @@
 import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import thunkMiddleware from "redux-thunk";
 import blogReducer from "./blogReducer";
+import cartReducer from "./cartReducer";
 import productsReducer from "./productsReducer";
 
 let rootReducer = combineReducers({
     products: productsReducer,
     blog: blogReducer,
+    cart: cartReducer,
 });
 
 // @ts-ignore
