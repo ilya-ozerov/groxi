@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../FeaturedProducts.scss';
 
-
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentFilter } from '../../../../../redux/productsSelectors';
-import { getProductsThunkCreator } from '../../../../../redux/productsReducer';
+import { productsActions } from '../../../../../redux/productsReducer';
 
 export const FeaturedMenu: React.FC<FeaturedMenuProps> = (props) => {
 
@@ -23,21 +22,21 @@ export const FeaturedMenu: React.FC<FeaturedMenuProps> = (props) => {
   // Changes the filter when selecting a category
   useEffect(() => {
     if (selectedCategory === "All") {
-      dispatch(getProductsThunkCreator(0, 6, {
+      dispatch(productsActions.currentFilterChanged({
         query: filter.query,
         price: filter.price,
         sorting: filter.sorting,
         tags: []
       }));
     } else {
-      dispatch(getProductsThunkCreator(0, 6, {
+      dispatch(productsActions.currentFilterChanged({
         query: filter.query,
         price: filter.price,
         sorting: filter.sorting,
         tags: [selectedCategory]
       }));
     }
-  }, [selectedCategory])
+  }, [selectedCategory]);
 
   return (
     <div className="featured-products__menu">
