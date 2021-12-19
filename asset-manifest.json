@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/groxi/static/css/main.fdd2b05e.chunk.css",
-    "main.js": "/groxi/static/js/main.8324b84e.chunk.js",
-    "main.js.map": "/groxi/static/js/main.8324b84e.chunk.js.map",
-    "runtime-main.js": "/groxi/static/js/runtime-main.bbb44fb6.js",
-    "runtime-main.js.map": "/groxi/static/js/runtime-main.bbb44fb6.js.map",
+    "main.css": "/groxi/static/css/main.d3fe048a.chunk.css",
+    "main.js": "/groxi/static/js/main.b85f7b78.chunk.js",
+    "main.js.map": "/groxi/static/js/main.b85f7b78.chunk.js.map",
+    "runtime-main.js": "/groxi/static/js/runtime-main.6ca2e6e6.js",
+    "runtime-main.js.map": "/groxi/static/js/runtime-main.6ca2e6e6.js.map",
     "static/css/2.4dca5ddc.chunk.css": "/groxi/static/css/2.4dca5ddc.chunk.css",
-    "static/js/2.6d349a7b.chunk.js": "/groxi/static/js/2.6d349a7b.chunk.js",
-    "static/js/2.6d349a7b.chunk.js.map": "/groxi/static/js/2.6d349a7b.chunk.js.map",
-    "static/js/3.3a1d4fa1.chunk.js": "/groxi/static/js/3.3a1d4fa1.chunk.js",
-    "static/js/3.3a1d4fa1.chunk.js.map": "/groxi/static/js/3.3a1d4fa1.chunk.js.map",
+    "static/js/2.137f8722.chunk.js": "/groxi/static/js/2.137f8722.chunk.js",
+    "static/js/2.137f8722.chunk.js.map": "/groxi/static/js/2.137f8722.chunk.js.map",
+    "static/js/3.214cd2f8.chunk.js": "/groxi/static/js/3.214cd2f8.chunk.js",
+    "static/js/3.214cd2f8.chunk.js.map": "/groxi/static/js/3.214cd2f8.chunk.js.map",
     "index.html": "/groxi/index.html",
     "static/css/2.4dca5ddc.chunk.css.map": "/groxi/static/css/2.4dca5ddc.chunk.css.map",
-    "static/css/main.fdd2b05e.chunk.css.map": "/groxi/static/css/main.fdd2b05e.chunk.css.map",
-    "static/js/2.6d349a7b.chunk.js.LICENSE.txt": "/groxi/static/js/2.6d349a7b.chunk.js.LICENSE.txt",
+    "static/css/main.d3fe048a.chunk.css.map": "/groxi/static/css/main.d3fe048a.chunk.css.map",
+    "static/js/2.137f8722.chunk.js.LICENSE.txt": "/groxi/static/js/2.137f8722.chunk.js.LICENSE.txt",
     "static/media/background.0f7d6718.png": "/groxi/static/media/background.0f7d6718.png",
     "static/media/background.28f3ea1d.png": "/groxi/static/media/background.28f3ea1d.png",
     "static/media/background.9af3d041.png": "/groxi/static/media/background.9af3d041.png",
@@ -61,10 +61,10 @@
     "static/media/vegetables_bg.5f1404c5.png": "/groxi/static/media/vegetables_bg.5f1404c5.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.bbb44fb6.js",
+    "static/js/runtime-main.6ca2e6e6.js",
     "static/css/2.4dca5ddc.chunk.css",
-    "static/js/2.6d349a7b.chunk.js",
-    "static/css/main.fdd2b05e.chunk.css",
-    "static/js/main.8324b84e.chunk.js"
+    "static/js/2.137f8722.chunk.js",
+    "static/css/main.d3fe048a.chunk.css",
+    "static/js/main.b85f7b78.chunk.js"
   ]
 }
