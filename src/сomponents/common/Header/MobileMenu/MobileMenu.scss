@@ -43,6 +43,8 @@
     }
 
     &__body {
+        display: grid;
+
         position: absolute;
         width: 340px;
         right: 0px;
@@ -53,16 +55,22 @@
 
         padding: 20px;
 
-        overflow: hidden;
+        overflow: auto;
+
+        @media (max-width: 1125px) {
+            width: 450px;
+            height: 70vh;
+        }
 
         @media (max-width: 767px) {
-            right: -10px;
             width: 100vw;
+            right: -10px;
         }
     }
     &__list {
         margin-bottom: 30px;
         text-align: center;
+
         li {
             user-select: none;
             cursor: pointer;
@@ -85,10 +93,14 @@
     }
 
     &__services {
+        align-self: end;
+
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 15px;
+    }
+    &__service {
     }
     &__icon {
         width: 50px;
@@ -122,4 +134,12 @@
     }
     &-exit-active {
     }
+}
+
+.mobile-menu-service-active {
+    border: 1px solid #9fcb22;
+}
+
+.mobile-menu-open {
+    overflow: hidden;
 }
