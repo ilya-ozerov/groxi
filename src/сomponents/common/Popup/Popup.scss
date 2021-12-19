@@ -1,0 +1,13 @@
+.popup {
+    position: absolute;
+    z-index: 3;
+    right: 0px;
+    top: 70px;
+
+    background-color: #f6fafb;
+    box-shadow: 0px 2px 5px #cccce3;
+
+    @media (max-width: 1125px) {
+        top: 0;
+    }
+}
