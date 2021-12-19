@@ -55,6 +55,15 @@
             display: none;
         }
     }
+
+    &__service {
+        position: relative;
+        margin-right: 10px;
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+
     &__icon {
         display: flex;
         align-items: center;
@@ -63,9 +72,19 @@
         height: 43px;
         background-color: #fff;
         border-radius: 50%;
-        margin-right: 10px;
-        &:last-child {
-            margin-right: 0px;
+
+        user-select: none;
+        cursor: pointer;
+
+        transition-duration: 0.2s;
+        &:hover {
+            transform: scale(1.1);
+        }
+        &:focus {
+            transform: scale(1.1);
+        }
+        &:active {
+            transform: scale(0.9);
         }
     }
 }
@@ -80,4 +99,8 @@
     padding: 10px;
     background-color: #f6fafb;
     box-shadow: 0px 0px 5px #cccce3;
+}
+
+.header-service-active {
+    border: 2px solid #9fcb22;
 }
